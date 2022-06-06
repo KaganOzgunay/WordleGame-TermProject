@@ -1,9 +1,4 @@
-<<<<<<< Updated upstream
-//deneme123
 
-=======
-//try
->>>>>>> Stashed changes
 package WordleGame;
 
 import java.awt.*;
@@ -198,6 +193,7 @@ public class Algorithm  {
 
         }
         if(GC == 5){
+            Stopwatch.stop();
             for(int i = x+1;i<5;i++){
 
                 point += (5-i)*50*5;
@@ -221,6 +217,7 @@ public class Algorithm  {
 
         }
         if(RoundCounter==5){
+            Stopwatch.stop();
             System.out.println("X/5");
 
 
