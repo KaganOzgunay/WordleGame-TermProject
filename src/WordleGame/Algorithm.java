@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 //deneme123
 
+=======
+//try
+>>>>>>> Stashed changes
 package WordleGame;
 
 import java.awt.*;
