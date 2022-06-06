@@ -63,7 +63,7 @@ public class Algorithm  {
         try
         {
 
-            File file=new File("C:\\Users\\halpe\\OneDrive\\Masaüstü\\java\\HelloWorld\\src\\words.txt");    //creates a new file instance
+            File file=new File("src/WordleGame/words.txt");    //creates a new file instance
             FileReader fr=new FileReader(file);
             BufferedReader br=new BufferedReader(fr);
 
@@ -94,7 +94,7 @@ public class Algorithm  {
     public boolean textControl(int x){
         String result = getResult(x);
         try{
-            File file = new File("C:\\Users\\halpe\\OneDrive\\Masaüstü\\java\\HelloWorld\\src\\words.txt");
+            File file = new File("src/WordleGame/words.txt");
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line;
