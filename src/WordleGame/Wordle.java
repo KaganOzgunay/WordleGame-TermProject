@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 
 public class Wordle{
 	boolean denemss = true;
+
+    int test = 0;
     int counter = 0;
     static Algorithm txt = new Algorithm();
     Algorithm field = new Algorithm();
