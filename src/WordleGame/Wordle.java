@@ -15,11 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class Wordle{
-<<<<<<< Updated upstream
-    int test = 0;
-=======
-	boolean denemey = true;
->>>>>>> Stashed changes
+
     int counter = 0;
     static Algorithm txt = new Algorithm();
     Algorithm field = new Algorithm();
