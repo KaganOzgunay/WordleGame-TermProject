@@ -13,8 +13,9 @@ public class stopwatch {
     }
 
 
+
 }
-// ***************************************************
+
 
 
 
@@ -47,7 +48,7 @@ class Stopwatch implements ActionListener {
     });
 
 
-    Stopwatch(){
+    public Stopwatch(){
 
         timeLabel.setText(minutes_string+":"+seconds_string);
         timeLabel.setBounds(100,100,200,100);
@@ -101,11 +102,11 @@ class Stopwatch implements ActionListener {
 
     }
 
-    static void start() {
+    public static void start() {
         timer.start();
     }
 
-    static void stop() {
+    public static void stop() {
         timer.stop();
         System.out.println(minutes_string+" : "+seconds_string);
     }

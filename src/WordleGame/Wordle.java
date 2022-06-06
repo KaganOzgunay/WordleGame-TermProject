@@ -75,7 +75,7 @@ public class Wordle{
     }
 
     public static void main(String[] args) {
-
+        Stopwatch.start();
         txt.wordSelector();
         new Wordle();
 

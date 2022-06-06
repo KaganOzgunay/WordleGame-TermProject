@@ -63,7 +63,7 @@ public class Algorithm  {
         try
         {
 
-            File file=new File("C:\\Users\\halpe\\OneDrive\\Masaüstü\\java\\HelloWorld\\src\\words.txt");    //creates a new file instance
+            File file=new File("src/WordleGame/words.txt");    //creates a new file instance
             FileReader fr=new FileReader(file);
             BufferedReader br=new BufferedReader(fr);
 
@@ -94,7 +94,7 @@ public class Algorithm  {
     public boolean textControl(int x){
         String result = getResult(x);
         try{
-            File file = new File("C:\\Users\\halpe\\OneDrive\\Masaüstü\\java\\HelloWorld\\src\\words.txt");
+            File file = new File("src/WordleGame/words.txt");
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line;
@@ -192,6 +192,7 @@ public class Algorithm  {
 
         }
         if(GC == 5){
+            Stopwatch.stop();
             for(int i = x+1;i<5;i++){
 
                 point += (5-i)*50*5;
@@ -215,6 +216,7 @@ public class Algorithm  {
 
         }
         if(RoundCounter==5){
+            Stopwatch.stop();
             System.out.println("X/5");
 
 
