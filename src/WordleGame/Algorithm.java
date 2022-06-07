@@ -120,7 +120,7 @@ public class Algorithm  {
         return false;
     }
 
-
+//Kahraman joined.
 
     public String getResult(int x){
         String result = "";
