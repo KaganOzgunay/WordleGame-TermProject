@@ -1,5 +1,7 @@
 package WordleGame;
+import Confetti.ConfettiFunction;
 import javax.swing.*;
+
 
 import javax.swing.border.LineBorder;
 
@@ -79,8 +81,9 @@ public class Wordle{
         Stopwatch.start();
         txt.wordSelector();
         new Wordle();
-
-
+        
+        //This starts confetti.
+        ConfettiFunction confetti = new ConfettiFunction(100,100);
     } }
 
 
