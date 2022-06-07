@@ -132,7 +132,7 @@ public class Algorithm  {
 
     }
 
-//test-for-Kahraman
+
     public void control(String str,int x){
         int GC = 0;
         RoundCounter++;
