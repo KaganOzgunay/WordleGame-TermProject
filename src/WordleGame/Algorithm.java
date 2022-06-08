@@ -10,7 +10,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.io.*;
 
-
+import static WordleGame.KeyBoard.end;
 
 
 public class Algorithm  {
@@ -194,6 +194,7 @@ public class Algorithm  {
 
         }
         if(GC == 5){
+            end = true;
             Stopwatch.stop();
             for(int i = x+1;i<5;i++){
 
@@ -218,6 +219,7 @@ public class Algorithm  {
 
         }
         if(RoundCounter==5){
+            end = true;
             Stopwatch.stop();
             System.out.println("X/5");
 
@@ -266,7 +268,7 @@ public class Algorithm  {
 
                 fields[x][y] = new TextField();
 
-                fields[x][y].setColumns(10);
+                fields[x][y].setColumns(1);
                 fields[x][y].setText(" ");
                 fields[x][y].setBounds(150 + y*45, 60+x*45, 40, 40);
                 fields[x][y].setBackground(Color.WHITE);

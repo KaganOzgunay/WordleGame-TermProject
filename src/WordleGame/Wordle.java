@@ -34,7 +34,7 @@ public class Wordle{
     static JFrame f= new JFrame("Wordle");
     static JFrame stickerFrame = new JFrame("STICKER");
 
-    JFrame transFrame = new JFrame("TEST");
+
 
     JTextField t11,t12,t13,t14,t15;
 
@@ -64,13 +64,7 @@ public class Wordle{
         f.setSize(600,800);
         f.setLayout(null);
         f.setVisible(true);
-        transFrame.setSize(400,400);
-        transFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        transFrame.setUndecorated(true);
-        transFrame.setBackground(new Color(1.0f,1.0f,1.0f,0.2f));
 
-        transFrame.setLayout(null);
-        transFrame.setVisible(true);
     }
 
     public static void main(String[] args) {
