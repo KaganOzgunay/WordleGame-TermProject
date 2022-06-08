@@ -75,7 +75,7 @@ public class Algorithm  {
                 lineCounter++;
                 if(lineCounter == randInt) {
 
-                    anw = line.toString();
+                    anw =line.toString();
 
                     break;
                 }
@@ -138,6 +138,7 @@ public class Algorithm  {
         RoundCounter++;
         String Yanw = anw;
         String Ganw = anw;
+        String bosluk = "  ";
         for(int i = 0;i<5;i++){
 
 
@@ -267,9 +268,9 @@ public class Algorithm  {
 
                 fields[x][y].setColumns(10);
                 fields[x][y].setText(" ");
-                fields[x][y].setBounds(100 + y*25, x*25, 20, 20);
-                fields[x][y].setBackground(Color.BLACK);
-                fields[x][y].setForeground(Color.WHITE);
+                fields[x][y].setBounds(150 + y*45, 60+x*45, 40, 40);
+                fields[x][y].setBackground(Color.WHITE);
+                fields[x][y].setForeground(Color.BLACK);
 
 
 

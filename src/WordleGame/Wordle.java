@@ -61,10 +61,6 @@ public class Wordle{
 
 
 
-
-
-
-
         f.setSize(600,800);
         f.setLayout(null);
         f.setVisible(true);
@@ -83,7 +79,7 @@ public class Wordle{
         new Wordle();
         
         //This starts confetti.
-        ConfettiFunction confetti = new ConfettiFunction(100,100);
+        //ConfettiFunction confetti = new ConfettiFunction(100,100);
     } }
 
 
