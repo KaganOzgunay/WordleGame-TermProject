@@ -23,16 +23,16 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 		this.c_rectangles = c_rectangles;
 		this.c_triangles = c_triangles;
 		tm.start();
-		JFrame jf = new JFrame();
-		JPanel jp = new JPanel();
-		jp.setPreferredSize(new Dimension(600,600));
-		jf.getContentPane().add( jp );
-		jf.pack();
-		jf.setResizable(false);
-		jf.setTitle("Confetti");
-		jf.add(this);
-		jf.setVisible(true);
-		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//JFrame jf = new JFrame();
+		//JPanel jp = new JPanel();
+		//jp.setPreferredSize(new Dimension(600,600));
+		//jf.getContentPane().add( jp );
+		//jf.pack();
+		//jf.setResizable(false);
+		//jf.setTitle("Confetti");
+		//jf.add(this);
+		//jf.setVisible(true);
+		//jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	static int height=600,width=600;

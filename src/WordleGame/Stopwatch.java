@@ -5,7 +5,7 @@ package WordleGame;
 import javax.swing.Timer;
 
 
-public class Stopwatch{
+public class Stopwatch {
     static int elapsedTime = 0;
     static int seconds = 0;
     static int minutes = 0;
