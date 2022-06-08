@@ -149,6 +149,7 @@ public class Algorithm  {
 
                 point += (5-x)*50;
                 buttonArray[i].setBackground(Color.GREEN);
+                buttonArray[i].setBorderPainted(false);
                 stickerArr[x][i] = ANSI_GREEN+"[]"+ANSI_RESET;
 
                 Ganw = Ganw.substring(0,Ganw.indexOf(str.charAt(i))) + " " + Ganw.substring(Ganw.indexOf(str.charAt(i))+1);
@@ -185,10 +186,12 @@ public class Algorithm  {
             else if( fields[x][i].getBackground() == Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
 
                 buttonArray[i].setBackground(Color.YELLOW);
+                buttonArray[i].setBorderPainted(false);
             }
             else if( buttonArray[i].getBackground() != Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
 
                 buttonArray[i].setBackground(Color.GRAY);
+                buttonArray[i].setBorderPainted(false);
             }
 
 
