@@ -1,10 +1,22 @@
 
 package WordleGame;
+import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import java.awt.*;
 import java.security.Key;
 import java.util.*;
-
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.*;
+import java.awt.font.*;
+import java.io.*;
+import javax.swing.*;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -14,7 +26,7 @@ import static WordleGame.KeyBoard.end;
 
 
 public class Algorithm  {
-
+    Font font1 = new Font("SansSerif", Font.BOLD, 30);
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -36,20 +48,38 @@ public class Algorithm  {
 
 
     static TextField[][] fields = new TextField[6][5];
+
+
+
     static int dwcounter = 0;
     public void changeTheme(){
         if(dwcounter%2 == 0){
 
             frame.getContentPane().setBackground(Color.WHITE);
+            changeFieldColor(Color.WHITE,Color.BLACK);
             dwcounter++;
         }
         else if(dwcounter%2==1){
 
             frame.getContentPane().setBackground(Color.BLACK);
+            changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
         }
+
     }
 
+    public void changeFieldColor(Color color,Color opColor){
+        for(int x = 0;x<5;x++){
+            for(int y = 0;y<5;y++){
+                if(fields[x][y].getBackground() == color){
+                    fields[x][y].setBackground(opColor);
+                }
+                    fields[x][y].setForeground(color);
+
+            }
+        }
+
+}
 
     public int randomNumberGenerator() {
         int randomInt = (int)Math.floor(Math.random()*(max-min+1)+min);
@@ -149,7 +179,7 @@ public class Algorithm  {
 
                 point += (5-x)*50;
                 buttonArray[i].setBackground(Color.GREEN);
-                buttonArray[i].setBorderPainted(false);
+
                 stickerArr[x][i] = ANSI_GREEN+"[]"+ANSI_RESET;
 
                 Ganw = Ganw.substring(0,Ganw.indexOf(str.charAt(i))) + " " + Ganw.substring(Ganw.indexOf(str.charAt(i))+1);
@@ -186,12 +216,13 @@ public class Algorithm  {
             else if( fields[x][i].getBackground() == Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
 
                 buttonArray[i].setBackground(Color.YELLOW);
-                buttonArray[i].setBorderPainted(false);
+
             }
             else if( buttonArray[i].getBackground() != Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
 
                 buttonArray[i].setBackground(Color.GRAY);
-                buttonArray[i].setBorderPainted(false);
+                fields[x][i].setBackground(Color.GRAY);
+
             }
 
 
@@ -261,7 +292,7 @@ public class Algorithm  {
 
 
 
-
+        JLabel label = new JLabel();
 
 
         for (int x = 0; x < xLength; x++) {
@@ -270,7 +301,8 @@ public class Algorithm  {
 
 
                 fields[x][y] = new TextField();
-
+                fields[x][y].setFont(font1);
+                //fields[x][y].set
                 fields[x][y].setColumns(1);
                 fields[x][y].setText(" ");
                 fields[x][y].setBounds(150 + y*45, 60+x*45, 40, 40);

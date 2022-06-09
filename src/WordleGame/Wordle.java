@@ -69,6 +69,8 @@ public class Wordle{
     }
 
     public static void main(String[] args) {
+        SwitchButton switchButton = new SwitchButton();
+        f.add(switchButton);
         Stopwatch.start();
         txt.wordSelector();
         new Wordle();
