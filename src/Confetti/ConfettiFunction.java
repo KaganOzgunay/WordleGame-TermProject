@@ -1,6 +1,8 @@
 package Confetti;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -14,14 +16,17 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import Confetti.Particle;
+import WordleGame.Wordle;
 
 public class ConfettiFunction extends JPanel implements ActionListener{
 	public int c_rectangles,c_triangles;
+	JFrame jf;
 	Timer tm = new Timer(15,this);
 	public static ArrayList<Particle> shapes = new ArrayList<Particle>();
 	public ConfettiFunction (int c_rectangles,int c_triangles) {
 		this.c_rectangles = c_rectangles;
 		this.c_triangles = c_triangles;
+		jf = Wordle.getframe();
 		tm.start();
 		//JFrame jf = new JFrame();
 		//JPanel jp = new JPanel();
@@ -30,12 +35,13 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 		//jf.pack();
 		//jf.setResizable(false);
 		//jf.setTitle("Confetti");
-		//jf.add(this);
-		//jf.setVisible(true);
+		jf.setLayout(new BorderLayout());
+		jf.add(this);
+		jf.setVisible(true);
 		//jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	static int height=600,width=600;
+	static int height=800,width=600;
 	
 	public void paint(Graphics g) {
 		super.paint(g);

@@ -1,5 +1,7 @@
-
 package WordleGame;
+
+import Confetti.ConfettiFunction;
+
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 
@@ -75,12 +77,9 @@ public class Algorithm  {
                     fields[x][y].setBackground(opColor);
                 }
                     fields[x][y].setForeground(color);
-
             }
         }
-
 }
-
     public int randomNumberGenerator() {
         int randomInt = (int)Math.floor(Math.random()*(max-min+1)+min);
         return randomInt;
@@ -101,7 +100,6 @@ public class Algorithm  {
             String line;
             while((line=br.readLine()) != null)
             {
-
                 lineCounter++;
                 if(lineCounter == randInt) {
 
@@ -109,12 +107,8 @@ public class Algorithm  {
 
                     break;
                 }
-
-
             }
             fr.close();
-
-
         }
         catch(IOException e)
         {
@@ -139,9 +133,6 @@ public class Algorithm  {
                     return true;
                 }
             }
-
-
-
         }
         catch(IOException e)
         {
@@ -151,7 +142,6 @@ public class Algorithm  {
     }
 
 
-
     public String getResult(int x){
         String result = "";
         for(int i=0;i<5;i++){
@@ -159,7 +149,6 @@ public class Algorithm  {
             result += fields[x][i].getText().toUpperCase();
         }
         return result;
-
     }
 
 
@@ -186,8 +175,6 @@ public class Algorithm  {
                 GC++;
                 continue;
 
-
-
             }
             if(Yanw.indexOf(str.charAt(i)) >= 0){
 
@@ -198,8 +185,6 @@ public class Algorithm  {
 
 
                 Yanw = Yanw.substring(0,Yanw.indexOf(str.charAt(i))) + " " + Yanw.substring(Yanw.indexOf(str.charAt(i))+1);
-
-
 
             }
         }
@@ -224,8 +209,6 @@ public class Algorithm  {
                 fields[x][i].setBackground(Color.GRAY);
 
             }
-
-
         }
         if(GC == 5){
             end = true;
@@ -244,12 +227,12 @@ public class Algorithm  {
 
             }
 
-
-
+            ConfettiFunction confetti = new ConfettiFunction(100,100);
+            /*
             JOptionPane.showMessageDialog(null,
                     "You found the word: " + "\"" + anw + "\"",
                     "PopUp Dialog",
-                    JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.INFORMATION_MESSAGE);*/
 
         }
         if(RoundCounter==5){
@@ -263,18 +246,13 @@ public class Algorithm  {
                     System.out.print(stickerArr[a][b]+" ");
                 }
                 System.out.println();
-
             }
-
 
             JOptionPane.showMessageDialog(null,
                     "Game Over" + "\n  " + "The word is: " + "\"" + "\uD83D\uDE00" + "\"",
                     "PopUp Dialog",
                     JOptionPane.INFORMATION_MESSAGE);
-
         }
-
-
     }
 
 
@@ -298,8 +276,7 @@ public class Algorithm  {
         for (int x = 0; x < xLength; x++) {
             for (int y = 0; y < yLength; y++) {
                 // your code
-
-
+            	
                 fields[x][y] = new TextField();
                 fields[x][y].setFont(font1);
                 //fields[x][y].set
@@ -309,28 +286,8 @@ public class Algorithm  {
                 fields[x][y].setBackground(Color.WHITE);
                 fields[x][y].setForeground(Color.BLACK);
 
-
-
                 frame.getContentPane().add(fields[x][y]);
-
-
-
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
 }

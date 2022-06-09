@@ -1,5 +1,5 @@
 package WordleGame;
-import Confetti.ConfettiFunction;
+
 import javax.swing.*;
 
 
@@ -67,6 +67,10 @@ public class Wordle{
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
+    
+    public static JFrame getframe () {
+    	return f;
+    }
 
     public static void main(String[] args) {
         SwitchButton switchButton = new SwitchButton();
@@ -74,9 +78,6 @@ public class Wordle{
         Stopwatch.start();
         txt.wordSelector();
         new Wordle();
-        
-        //This starts confetti.
-        ConfettiFunction confetti = new ConfettiFunction(100,100);
     } }
 
 
