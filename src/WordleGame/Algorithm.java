@@ -63,7 +63,6 @@ public class Algorithm  {
             dwcounter++;
         }
         else if(dwcounter%2==1){
-
             frame.getContentPane().setBackground(Color.BLACK);
             changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
@@ -196,7 +195,7 @@ public class Algorithm  {
             if(Ganw.indexOf(fields[x][i].getText().toUpperCase()) < 0 && fields[x][i].getBackground() == Color.YELLOW){
 
                 stickerArr[x][i] = "[]";
-                fields[x][i].setBackground(Color.BLACK);
+                fields[x][i].setBackground(Color.GRAY);
                 point -= (5-x)*25;
             }
             else if( fields[x][i].getBackground() == Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
