@@ -21,7 +21,7 @@ import WordleGame.Wordle;
 public class ConfettiFunction extends JPanel implements ActionListener{
 	public int c_rectangles,c_triangles;
 	JFrame jf;
-	Timer tm = new Timer(15,this);
+	Timer tm = new Timer(20,this);
 	public static ArrayList<Particle> shapes = new ArrayList<Particle>();
 	public ConfettiFunction (int c_rectangles,int c_triangles) {
 		this.c_rectangles = c_rectangles;
@@ -87,11 +87,11 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 		}
 		if (c_rectangles+c_triangles > 0) {
 			Random rand = new Random();
-			for (int i=0 ; i<2 ; i++) {
-				shapes.add(new Rectangle(0,height,30.0,30.0,rand.nextDouble()*(5-1+1)+1,rand.nextDouble()*(20-10+1)+10,-rand.nextInt(10)+3,height));
-				shapes.add(new Rectangle(width-30,height,30.0,30.0,-(rand.nextDouble()*(5-1+1)+1),rand.nextDouble()*(20-10+1)+10,rand.nextInt(10)+3,height));
+			for (int i=0 ; i<1 ; i++) {
+				shapes.add(new Rectangle(0,height,30.0,30.0,rand.nextDouble()*(6-0.5+1)+0.5,rand.nextDouble()*(25-10+1)+10,-rand.nextInt(10)+3,height));
+				shapes.add(new Rectangle(width-30,height,30.0,30.0,-(rand.nextDouble()*(6-0.5+1)+0.5),rand.nextDouble()*(25-10+1)+10,rand.nextInt(10)+3,height));
 			}
-			for (int i=0 ; i<2 ; i++) {
+			for (int i=0 ; i<1 ; i++) {
 				double[] aa = {width,width-15,width+15};
 				double[] bb = {height,height+15*Math.sqrt(3),height+15*Math.sqrt(3)};
 				shapes.add(new Triangle(aa,bb,-(rand.nextDouble()*(4-1+1)+1),rand.nextDouble()*(20-10+1)+10,-rand.nextInt(10)+3,height));
@@ -99,8 +99,8 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 				double[] bb2 = {height,height+15*Math.sqrt(3),height+15*Math.sqrt(3)};
 				shapes.add(new Triangle(aa2,bb2,rand.nextDouble()*(4-1+1)+1,rand.nextDouble()*(20-10+1)+10,rand.nextInt(10)+3,height));
 			}
-			c_rectangles -= 4;
-			c_triangles -= 4;
+			c_rectangles -= 2;
+			c_triangles -= 2;
 		}
 		repaint();
 	}

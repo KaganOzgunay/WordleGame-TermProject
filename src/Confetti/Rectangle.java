@@ -4,6 +4,7 @@ import java.awt.Color;
 
 public class Rectangle extends Particle {
 	public double height,width;
+	static double gravity = 0.4; 
 	
 	public Rectangle (int x,int y,double height,double width,double velX,double velY,double rotate_vel,int screen_height) {
 		super.x = x;
@@ -31,7 +32,7 @@ public class Rectangle extends Particle {
 		}
 		super.x += super.velX;
 		super.y -= super.velY;
-		super.velY -= 0.4;
+		super.velY -= gravity;
 		super.rotate();
 		super.fadecolor();
 	}

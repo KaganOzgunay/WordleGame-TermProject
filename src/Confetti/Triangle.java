@@ -4,6 +4,7 @@ import java.awt.Color;
 
 public class Triangle extends Particle {
 	private double[] x,y;
+	static double gravity = 0.4;
 	public Triangle (double[] x,double[]y,double velX,double velY,double rotate_vel,int screen_height) {
 		super.x = (x[0] + x[1] + x[2])/3;
 		super.y = (y[0] + y[1] + y[2])/3;
@@ -36,7 +37,7 @@ public class Triangle extends Particle {
 			this.x[i] += super.velX;
 			this.y[i] -= super.velY;
 		}
-		super.velY -= 0.4;
+		super.velY -= gravity;
 		super.rotate();
 		super.fadecolor();
 	}

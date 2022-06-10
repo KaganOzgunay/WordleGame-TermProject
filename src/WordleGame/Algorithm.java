@@ -227,7 +227,7 @@ public class Algorithm  {
 
             }
 
-            ConfettiFunction confetti = new ConfettiFunction(100,100);
+            ConfettiFunction confetti = new ConfettiFunction(300,300);
             /*
             JOptionPane.showMessageDialog(null,
                     "You found the word: " + "\"" + anw + "\"",
