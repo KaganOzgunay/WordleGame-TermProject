@@ -54,15 +54,29 @@ public class Wordle{
         }
 
         field.setField(5,5);
-        f.getContentPane().setBackground(Color.BLACK);
+        
         f.setSize(600,800);
         keyboard.setKeyboard(f);
+        
+        BufferedImage background = null;
+        JLabel lbl2 = new JLabel();
+        lbl2.setBounds(0, 0, 600, 800);
+        try {
+			background = ImageIO.read(this.getClass().getResource("../Images/background.jpeg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        Image bg = background.getScaledInstance(lbl2.getWidth(), lbl2.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon bgimage = new ImageIcon(bg);
+        lbl2.setIcon(bgimage);
+        f.add(lbl2);
+
 
         BufferedImage bee = null;
         JLabel lbl = new JLabel();
         lbl.setBounds(0, 0, 100, 100);
         try {
-			bee = ImageIO.read(this.getClass().getResource("cartoon-bee.jpeg"));
+			bee = ImageIO.read(this.getClass().getResource("../Images/bee.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
