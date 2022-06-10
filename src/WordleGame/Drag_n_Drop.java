@@ -38,7 +38,7 @@ public class Drag_n_Drop {
         });
     }
 
-    public class ScratchPane extends JPanel {
+    /*public class ScratchPane extends JPanel {
 
         public ScratchPane() {
             setLayout(new GridLayout(1, 2));
@@ -80,7 +80,7 @@ public class Drag_n_Drop {
             return panel;
         }
 
-    }
+    }*/
 
     public static class ValueExportTransferHandler extends TransferHandler {
 
