@@ -1,5 +1,5 @@
 package WordleGame;
-
+/*
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
@@ -80,7 +80,7 @@ public class Drag_n_Drop {
             return panel;
         }
 
-    }*/
+    }
 
     public static class ValueExportTransferHandler extends TransferHandler {
 
@@ -147,4 +147,4 @@ public class Drag_n_Drop {
             return accept;
         }
     }
-}
+}*/

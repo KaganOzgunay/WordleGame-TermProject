@@ -22,6 +22,8 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 	public int c_rectangles,c_triangles;
 	JFrame jf;
 	Timer tm = new Timer(20,this);
+	static int height=800,width=600;
+	Dimension size;
 	public static ArrayList<Particle> shapes = new ArrayList<Particle>();
 	public ConfettiFunction (int c_rectangles,int c_triangles) {
 		this.c_rectangles = c_rectangles;
@@ -39,9 +41,12 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 		jf.add(this);
 		jf.setVisible(true);
 		//jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		size = jf.getBounds().getSize();
+		height = size.height;
+		width = size.width;
 	}
 	
-	static int height=800,width=600;
+	
 	
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -67,6 +72,9 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 	
 	
 	public void actionPerformed(ActionEvent e) {
+		size = jf.getBounds().getSize();
+		height = size.height;
+		width = size.width;
 		for (int i = 0 ; i<shapes.size() ; i++) {
 			if (shapes.get(i) instanceof Rectangle) {
 				((Rectangle)shapes.get(i)).move();
