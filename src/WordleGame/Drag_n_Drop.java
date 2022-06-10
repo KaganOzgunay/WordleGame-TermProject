@@ -12,7 +12,7 @@ import java.awt.dnd.DnDConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Drag_n_Drop {
+public class Drag_n_Drop { 
 
     public static void main(String[] args) {
         new Drag_n_Drop();
@@ -38,7 +38,7 @@ public class Drag_n_Drop {
         });
     }
 
-    /*public class ScratchPane extends JPanel {
+   public class ScratchPane extends JPanel {
 
         public ScratchPane() {
             setLayout(new GridLayout(1, 2));
@@ -73,10 +73,14 @@ public class Drag_n_Drop {
 
         protected JPanel createRightPanel() {
             JPanel panel = new JPanel(new GridBagLayout());
-            JLabel label = new JLabel("Drop in");
+            JLabel label = new JLabel("Drop in"); //txt.field[row][col]
+            //JLabel labele = new JLabel("Drop in2");
             label.setBorder(new CompoundBorder(new LineBorder(Color.CYAN), new EmptyBorder(20, 20, 20, 20)));
-            label.setTransferHandler(new ValueImportTransferHandler());
+            label.setTransferHandler(new ValueImportTransferHandler()); //txt.field.setTransferHandler
             panel.add(label);
+            //labele.setBorder(new CompoundBorder(new LineBorder(Color.RED), new EmptyBorder(20, 20, 20, 20)));
+            //labele.setTransferHandler(new ValueImportTransferHandler());
+            //panel.add(labele);
             return panel;
         }
 
@@ -147,4 +151,5 @@ public class Drag_n_Drop {
             return accept;
         }
     }
-}*/
+}
+*/
