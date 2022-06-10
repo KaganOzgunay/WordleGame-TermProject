@@ -50,6 +50,7 @@ public class Algorithm  {
 
 
     static TextField[][] fields = new TextField[6][5];
+    // fields.setTransferHandler(new ValueImportTransferHandler()); ?????
 
 
 
