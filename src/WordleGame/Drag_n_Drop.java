@@ -53,6 +53,7 @@ public class Drag_n_Drop {
             gbc.gridwidth = GridBagConstraints.REMAINDER;
             gbc.fill = GridBagConstraints.HORIZONTAL;
             gbc.weightx = 1;
+            //burası tuşların konulacağı yer.
             for (int index = 0; index < 10; index++) {
                 JButton btn = new JButton(Integer.toString(index + 1));
                 panel.add(btn, gbc);
@@ -73,7 +74,7 @@ public class Drag_n_Drop {
         protected JPanel createRightPanel() {
             JPanel panel = new JPanel(new GridBagLayout());
             JLabel label = new JLabel("Drop in");
-            label.setBorder(new CompoundBorder(new LineBorder(Color.DARK_GRAY), new EmptyBorder(20, 20, 20, 20)));
+            label.setBorder(new CompoundBorder(new LineBorder(Color.CYAN), new EmptyBorder(20, 20, 20, 20)));
             label.setTransferHandler(new ValueImportTransferHandler());
             panel.add(label);
             return panel;
@@ -108,7 +109,7 @@ public class Drag_n_Drop {
         @Override
         protected void exportDone(JComponent source, Transferable data, int action) {
             super.exportDone(source, data, action);
-            // Decide what to do after the drop has been accepted
+            // Bıraktıktan sonra karar verme.
         }
 
     }
