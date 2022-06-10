@@ -108,6 +108,7 @@ public class Algorithm  {
                     break;
                 }
             }
+            System.out.println("the word is: "+ anw);
             fr.close();
         }
         catch(IOException e)
@@ -218,7 +219,7 @@ public class Algorithm  {
                 point += (5-i)*50*5;
             }
             System.out.println(RoundCounter+ "/5");
-            System.out.println(point);
+            System.out.println("your point is: "+point);
             for(int a = 0;a<5;a++){
                 for(int b = 0;b<5;b++){
                     System.out.print(stickerArr[a][b]+" ");
