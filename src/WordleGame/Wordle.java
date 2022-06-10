@@ -1,16 +1,16 @@
 package WordleGame;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
 import javax.swing.border.LineBorder;
 
 import java.awt.Graphics;
-
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.awt.Color;
-
-
-
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -55,13 +55,23 @@ public class Wordle{
 
         field.setField(5,5);
         f.getContentPane().setBackground(Color.BLACK);
-
+        f.setSize(600,800);
         keyboard.setKeyboard(f);
 
+        BufferedImage bee = null;
+        JLabel lbl = new JLabel();
+        lbl.setBounds(0, 0, 100, 100);
+        try {
+			bee = ImageIO.read(this.getClass().getResource("cartoon-bee.jpeg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        Image dimg = bee.getScaledInstance(lbl.getWidth(), lbl.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon imgicon = new ImageIcon(dimg);
+        lbl.setIcon(imgicon);
+        f.add(lbl);
 
-
-
-        f.setSize(600,800);
+        
         f.setLayout(null);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
