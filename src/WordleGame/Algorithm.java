@@ -57,7 +57,7 @@ public class Algorithm  {
     static int dwcounter = 0;
     public void changeTheme(){
         if(dwcounter%2 == 0){
-
+            Wordle.f.add(Wordle.lbl2);
             frame.getContentPane().setBackground(Color.WHITE);
             changeFieldColor(Color.WHITE,Color.BLACK);
             dwcounter++;

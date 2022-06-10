@@ -33,7 +33,7 @@ public class Wordle{
 
     static JFrame f= new JFrame("Wordle");
     static JFrame stickerFrame = new JFrame("STICKER");
-
+    static JLabel lbl2 = new JLabel();
 
 
     JTextField t11,t12,t13,t14,t15;
@@ -59,7 +59,7 @@ public class Wordle{
         keyboard.setKeyboard(f);
         
         BufferedImage background = null;
-        JLabel lbl2 = new JLabel();
+
         lbl2.setBounds(0, 0, 600, 800);
         try {
 			background = ImageIO.read(this.getClass().getResource("../Images/background.jpeg"));
@@ -69,7 +69,7 @@ public class Wordle{
         Image bg = background.getScaledInstance(lbl2.getWidth(), lbl2.getHeight(),Image.SCALE_SMOOTH);
         ImageIcon bgimage = new ImageIcon(bg);
         lbl2.setIcon(bgimage);
-        f.add(lbl2);
+        //f.add(lbl2);
 
 
         BufferedImage bee = null;
