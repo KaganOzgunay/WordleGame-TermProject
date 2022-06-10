@@ -273,18 +273,18 @@ public class Algorithm  {
         JLabel label = new JLabel();
 
 
-        for (int x = 0; x < xLength; x++) {
-            for (int y = 0; y < yLength; y++) {
+        for (int y = 0; y < xLength; y++) {
+            for (int x = 0; x < yLength; x++) {
                 // your code
             	
-                fields[x][y] = new TextField();
-                fields[x][y].setFont(font1);
+                fields[y][x] = new TextField();
+                fields[y][x].setFont(font1);
                 //fields[x][y].set
-                fields[x][y].setColumns(1);
-                fields[x][y].setText(" ");
-                fields[x][y].setBounds(150 + y*45, 60+x*45, 40, 40);
-                fields[x][y].setBackground(Color.WHITE);
-                fields[x][y].setForeground(Color.BLACK);
+                fields[y][x].setColumns(1);
+                fields[y][x].setText(" ");
+                fields[y][x].setBounds(150 + x*45, 60+y*45, 40, 40);
+                fields[y][x].setBackground(Color.WHITE);
+                fields[y][x].setForeground(Color.BLACK);
 
                 frame.getContentPane().add(fields[x][y]);
             }

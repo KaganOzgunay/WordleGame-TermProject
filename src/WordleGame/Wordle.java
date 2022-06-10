@@ -52,10 +52,13 @@ public class Wordle{
             }
 
         }
+        
+        f.setSize(600,800);
+        View page = new View();
 
         field.setField(5,5);
         
-        f.setSize(600,800);
+        
         keyboard.setKeyboard(f);
         
         BufferedImage background = null;
