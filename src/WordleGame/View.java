@@ -1,5 +1,8 @@
 package WordleGame;
 
+import Confetti.ConfettiFunction;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -27,8 +30,14 @@ public class View extends JPanel implements ActionListener {
 	
 	static JLabel lbl;
 	
-	double locxofbee = 0;
+	static double locxofbee = 0;
 	boolean viewchanged = false;
+	
+	static int[] colorsheet;
+	static int csrow;
+	int csrowi = 0;
+	
+	static boolean wincase = false;
 	
 	public View () {
 		jf = Wordle.getframe();
@@ -63,6 +72,22 @@ public class View extends JPanel implements ActionListener {
         jf.add(lbl);
 	}
 	
+	public void paintbee(int a) {
+		if (colorsheet[a] == 2) {
+			Algorithm.fields[csrow][a].setBackground(Color.GREEN);
+		}
+		if (colorsheet[a] == 1) {
+			Algorithm.fields[csrow][a].setBackground(Color.YELLOW);
+		}
+	}
+	public static void pushsheet (int[] cs,int x,int gc) {
+		locxofbee = 0;
+		colorsheet = cs;
+		csrow = x;
+		if (gc==5) {
+			wincase = true;
+		}
+	}
 	
 
 	public void paint(Graphics g) {
@@ -161,8 +186,34 @@ public class View extends JPanel implements ActionListener {
 			
 		}
 		if (Algorithm.movebee) {
+			if (locxofbee > 225 && csrowi == 4) {
+				paintbee(csrowi);
+				csrowi++;
+				Algorithm.movebee=false;
+				csrowi = 0;
+			}
+			else if (locxofbee > 170 && csrowi == 3) {
+				paintbee(csrowi);
+				csrowi++;
+			}
+			else if (locxofbee > 115 && csrowi == 2) {
+				paintbee(csrowi);
+				csrowi++;
+			}
+			else if (locxofbee > 60 && csrowi == 1) {
+				paintbee(csrowi);
+				csrowi++;
+			}
+			else if (locxofbee > 5 && csrowi == 0) {
+				paintbee(csrowi);
+				csrowi++;
+			}
+			
 			viewchanged = true;
-			locxofbee += 5;
+			locxofbee += 2;
+			if (wincase&&!Algorithm.movebee) {
+				ConfettiFunction confetti = new ConfettiFunction(100,100);
+			}
 		}
 	}
 }

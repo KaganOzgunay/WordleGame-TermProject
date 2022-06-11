@@ -161,13 +161,15 @@ public class Algorithm  {
         String Yanw = anw;
         String Ganw = anw;
         String bosluk = "  ";
+        int[] colorsheet = new int[5];
         for(int i = 0;i<5;i++){
-        	movebee = true;
+        	
 
             if(anw.charAt(i) == str.charAt(i)){
                 //animasyon buaraya eklenecek **yeşil
 
-                fields[x][i].setBackground(Color.GREEN);
+                //fields[x][i].setBackground(Color.GREEN);
+                colorsheet[i] = 2;
 
                 point += (5-x)*50;
                 buttonArray[i].setBackground(Color.GREEN);
@@ -179,18 +181,24 @@ public class Algorithm  {
                 continue;
 
             }
-            if(Yanw.indexOf(str.charAt(i)) >= 0){
+            else if(Yanw.indexOf(str.charAt(i)) >= 0){
 
 
                 stickerArr[x][i] = ANSI_YELLOW+"[]"+ANSI_RESET;
-                fields[x][i].setBackground(Color.YELLOW);
+                //fields[x][i].setBackground(Color.YELLOW);
+                colorsheet[i] = 1;
                 point += (5-x)*25;
 
 
                 Yanw = Yanw.substring(0,Yanw.indexOf(str.charAt(i))) + " " + Yanw.substring(Yanw.indexOf(str.charAt(i))+1);
 
             }
+            else {
+            	colorsheet[i] = 0;
+            }
         }
+        movebee = true;
+        View.pushsheet(colorsheet,x,GC);
 
 
         for(int i = 0; i < 5; i++){
@@ -229,8 +237,8 @@ public class Algorithm  {
                 System.out.println();
 
             }
-
-            ConfettiFunction confetti = new ConfettiFunction(300,300);
+      
+            
             /*
             JOptionPane.showMessageDialog(null,
                     "You found the word: " + "\"" + anw + "\"",
