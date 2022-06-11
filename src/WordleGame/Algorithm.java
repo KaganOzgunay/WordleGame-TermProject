@@ -274,8 +274,8 @@ public class Algorithm  {
         JLabel label = new JLabel();
 
 
-        for (int y = 0; y < xLength; y++) {
-            for (int x = 0; x < yLength; x++) {
+        for (int y = 0; y < yLength; y++) {
+            for (int x = 0; x < xLength; x++) {
                 // your code
             	
                 fields[y][x] = new TextField();
@@ -287,7 +287,7 @@ public class Algorithm  {
                 fields[y][x].setBackground(Color.WHITE);
                 fields[y][x].setForeground(Color.BLACK);
 
-                frame.getContentPane().add(fields[x][y]);
+                frame.getContentPane().add(fields[y][x]);
             }
         }
     }

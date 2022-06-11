@@ -77,7 +77,7 @@ public class Wordle{
 
         BufferedImage bee = null;
         JLabel lbl = new JLabel();
-        lbl.setBounds(0, 0, 100, 100);
+        lbl.setBounds(120, 0, 50, 50);
         try {
 			bee = ImageIO.read(this.getClass().getResource("../Images/bee.png"));
 		} catch (IOException e) {
