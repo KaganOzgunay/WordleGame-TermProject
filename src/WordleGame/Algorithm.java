@@ -42,6 +42,7 @@ public class Algorithm  {
     int RoundCounter = 0;
     int min = 1;int max = 12947;
     JFrame frame = Wordle.f;
+    JLabel lblHighscore;
     JButton[] buttonArray = Wordle.buttonArray;
     String[][] stickerArr = Wordle.stickerArr;
 
@@ -111,6 +112,7 @@ public class Algorithm  {
                 }
             }
             System.out.println("the word is: "+ anw);
+            System.out.println(loadHighScore());
             fr.close();
         }
         catch(IOException e)
@@ -237,8 +239,12 @@ public class Algorithm  {
                 System.out.println();
 
             }
+
       
             
+            saveHighScore();
+            ConfettiFunction confetti = new ConfettiFunction(300,300);
+
             /*
             JOptionPane.showMessageDialog(null,
                     "You found the word: " + "\"" + anw + "\"",
@@ -250,7 +256,7 @@ public class Algorithm  {
             end = true;
             Stopwatch.stop();
             System.out.println("X/5");
-
+            System.out.println("your point is: "+point);
 
             for(int a = 0;a<5;a++){
                 for(int b = 0;b<5;b++){
@@ -258,7 +264,7 @@ public class Algorithm  {
                 }
                 System.out.println();
             }
-
+            saveHighScore();
             JOptionPane.showMessageDialog(null,
                     "Game Over" + "\n  " + "The word is: " + "\"" + "\uD83D\uDE00" + "\"",
                     "PopUp Dialog",
@@ -301,4 +307,49 @@ public class Algorithm  {
             }
         }
     }
+    void saveHighScore(){
+	    BufferedWriter bw = null;
+	    boolean newscore=false;
+	    String score=loadHighScore();
+	    int number = 0;
+        try{
+            number = Integer.parseInt(score);
+           
+        }
+        catch (NumberFormatException ex){
+            ex.printStackTrace();
+        }
+	    
+	    
+	    try {
+	    	if(number<point) {
+	        bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "/src/WordleGame/highscore.txt", false)); //append - set to fals
+	        System.out.println("New highscore!!");
+	        bw.write("" + point);
+	        bw.flush();
+	        bw.close();
+	    	}
+	    	else {
+	    		System.out.println("You could not pass the highscore.");
+	    	}
+	    } 
+	    catch (IOException e) {
+	        JOptionPane.showMessageDialog(null, e.getMessage(), "There was an error while saving the score", JOptionPane.ERROR_MESSAGE);
+	    }
+	    
+	    
+    }
+    String loadHighScore(){
+        BufferedReader br = null;
+            String line = "";
+            try {
+                br = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/src/WordleGame/highscore.txt"));
+                line = br.readLine();
+                br.close();
+            } catch (IOException e) {
+                line = "0";
+            }
+            return line;
+        }
 }
+	

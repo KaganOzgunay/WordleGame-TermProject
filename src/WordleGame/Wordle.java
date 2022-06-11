@@ -22,6 +22,7 @@ public class Wordle{
     int counter = 0;
     static Algorithm txt = new Algorithm();
     Algorithm field = new Algorithm();
+    static Algorithm score = new Algorithm();
 
     JTextField textfield;
     static JButton[] buttonArray = new JButton[5];
@@ -79,6 +80,7 @@ public class Wordle{
         Stopwatch.start();
         txt.wordSelector();
         new Wordle();
+        
     } }
 
 
