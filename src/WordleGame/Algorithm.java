@@ -283,7 +283,7 @@ public class Algorithm  {
                 //fields[x][y].set
                 fields[y][x].setColumns(1);
                 fields[y][x].setText(" ");
-                fields[y][x].setBounds(150 + x*45, 60+y*45, 40, 40);
+                fields[y][x].setBounds((frame.getWidth()-260)/2 + x*55, (frame.getHeight()-260)/6 + y*55, 50, 50);
                 fields[y][x].setBackground(Color.WHITE);
                 fields[y][x].setForeground(Color.BLACK);
 
