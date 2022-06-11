@@ -13,25 +13,27 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import static WordleGame.KeyBoard.end;
+import static WordleGame.KeyBoard.row;
 
 
 public class Algorithm  {
+
     Font font1 = new Font("SansSerif", Font.BOLD, 30);
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_GREEN = "\u001B[32m";
     //public static final String ANSI_GRAY = ;
     public static final String GREEN_BACKGROUND = "\033[42m";  // GREEN
-
+    public static char cs;
     static boolean movebee = false;
-
+    public String tempResult;
     static public String anw;
     public int point = 0;
-    int RoundCounter = 0;
+    public int RoundCounter = 0;
     int min = 1;int max = 12947;
     JFrame frame = Wordle.f;
     JLabel lblHighscore;
-    JButton[] buttonArray = Wordle.buttonArray;
+
     String[][] stickerArr = Wordle.stickerArr;
 
     Random rand = new Random();
@@ -45,6 +47,10 @@ public class Algorithm  {
 
 
     static int dwcounter = 0;
+    public void setChar(char ch){
+        cs = ch;
+
+    }
     public void changeTheme(){
         if(dwcounter%2 == 0){
             Wordle.f.add(Wordle.lbl2);
@@ -137,32 +143,90 @@ public class Algorithm  {
 
     public String getResult(int x){
         String result = "";
+
         for(int i=0;i<5;i++){
             //dönme aniamsyonu buraya eklenecek
+
             result += fields[x][i].getText().toUpperCase();
         }
         return result;
     }
 
+    int roundcs = 0;
+    public void control(String str,int x) throws IOException {
+        //cs = 'c';
 
-    public void control(String str,int x){
+        if(row%2==0) {
+
+            if (cs == 's') {
+
+                if (str != null) {
+                    runGame.myserver.Send(str);
+                }
+                roundcs++;
+
+            }
+            if (cs == 'c') {
+                if (tempResult != null) {
+                    for (int i = 0; i < 5; i++) {
+                        fields[x][i].setText(Character.toString(tempResult.charAt(i)));
+                    }
+
+
+                    //str = runGame2.myclient.Process();
+                }
+                roundcs++;
+            }
+        }else {
+
+
+                if (cs == 's') {
+
+                    if (tempResult != null) {
+
+                            for (int i = 0; i < 5; i++) {
+                                fields[x][i].setText(Character.toString(tempResult.charAt(i)));
+
+
+
+                            //str = runGame2.myclient.Process();
+
+                        }
+                            roundcs++;
+
+                    }
+
+
+                }
+                if (cs == 'c') {
+
+                    if(str != null){
+
+                        runGame2.myclient.Send(str);
+                    }
+                    roundcs++;
+                }
+        }
+        roundcs++;
+
+
         int GC = 0;
-        RoundCounter++;
+        //RoundCounter++;
         String Yanw = anw;
         String Ganw = anw;
         String bosluk = "  ";
         int[] colorsheet = new int[5];
         for(int i = 0;i<5;i++){
-        	
+
 
             if(anw.charAt(i) == str.charAt(i)){
                 //animasyon buaraya eklenecek **yeşil
 
-                //fields[x][i].setBackground(Color.GREEN);
-                colorsheet[i] = 2;
+                fields[x][i].setBackground(Color.GREEN);
+                //colorsheet[i] = 2;
 
                 point += (5-x)*50;
-                buttonArray[i].setBackground(Color.GREEN);
+                Wordle.buttonArray[i].setBackground(Color.GREEN);
 
                 stickerArr[x][i] = ANSI_GREEN+"[]"+ANSI_RESET;
 
@@ -175,8 +239,8 @@ public class Algorithm  {
 
 
                 stickerArr[x][i] = ANSI_YELLOW+"[]"+ANSI_RESET;
-                //fields[x][i].setBackground(Color.YELLOW);
-                colorsheet[i] = 1;
+                fields[x][i].setBackground(Color.YELLOW);
+                //colorsheet[i] = 1;
                 point += (5-x)*25;
 
 
@@ -184,11 +248,12 @@ public class Algorithm  {
 
             }
             else {
-            	colorsheet[i] = 0;
+                fields[x][i].setBackground(Color.GRAY);
+            	//colorsheet[i] = 0;
             }
         }
-        movebee = true;
-        View.pushsheet(colorsheet,x,GC);
+        //movebee = true;
+        //View.pushsheet(colorsheet,x,0);
 
 
         for(int i = 0; i < 5; i++){
@@ -199,18 +264,19 @@ public class Algorithm  {
                 fields[x][i].setBackground(Color.GRAY);
                 point -= (5-x)*25;
             }
-            else if( fields[x][i].getBackground() == Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
+            else if( fields[x][i].getBackground() == Color.YELLOW && Wordle.buttonArray[i].getBackground() != Color.GREEN ){
 
-                buttonArray[i].setBackground(Color.YELLOW);
+                Wordle.buttonArray[i].setBackground(Color.YELLOW);
 
             }
-            else if( buttonArray[i].getBackground() != Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
+            else if( Wordle.buttonArray[i].getBackground() != Color.YELLOW && Wordle.buttonArray[i].getBackground() != Color.GREEN ){
 
-                buttonArray[i].setBackground(Color.GRAY);
+                Wordle.buttonArray[i].setBackground(Color.GRAY);
                 fields[x][i].setBackground(Color.GRAY);
 
             }
         }
+
         if(GC == 5){
             end = true;
             Stopwatch.stop();
@@ -218,7 +284,7 @@ public class Algorithm  {
 
                 point += (5-i)*50*5;
             }
-            System.out.println(RoundCounter+ "/5");
+            System.out.println(row+1+ "/5");
             System.out.println("your point is: "+point);
             for(int a = 0;a<5;a++){
                 for(int b = 0;b<5;b++){
@@ -228,8 +294,8 @@ public class Algorithm  {
 
             }
 
-      
-            
+
+
             saveHighScore();
 
             /*
@@ -239,11 +305,12 @@ public class Algorithm  {
                     JOptionPane.INFORMATION_MESSAGE);*/
 
         }
-        if(RoundCounter==5){
+
+        if(row+1==5 && end == false){
             end = true;
             Stopwatch.stop();
             System.out.println("X/5");
-            System.out.println("your point is: "+point);
+            point = 0;
 
             for(int a = 0;a<5;a++){
                 for(int b = 0;b<5;b++){
@@ -257,6 +324,7 @@ public class Algorithm  {
                     "PopUp Dialog",
                     JOptionPane.INFORMATION_MESSAGE);
         }
+        tempResult = "";
     }
 
 
@@ -280,7 +348,7 @@ public class Algorithm  {
         for (int y = 0; y < yLength; y++) {
             for (int x = 0; x < xLength; x++) {
                 // your code
-            	
+
                 fields[y][x] = new TextField();
                 fields[y][x].setFont(font1);
                 //fields[x][y].set
@@ -301,13 +369,13 @@ public class Algorithm  {
 	    int number = 0;
         try{
             number = Integer.parseInt(score);
-           
+
         }
         catch (NumberFormatException ex){
             ex.printStackTrace();
         }
-	    
-	    
+
+
 	    try {
 	    	if(number<point) {
 	        bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "/src/WordleGame/highscore.txt", false)); //append - set to fals
@@ -319,12 +387,12 @@ public class Algorithm  {
 	    	else {
 	    		System.out.println("You could not pass the highscore.");
 	    	}
-	    } 
+	    }
 	    catch (IOException e) {
 	        JOptionPane.showMessageDialog(null, e.getMessage(), "There was an error while saving the score", JOptionPane.ERROR_MESSAGE);
 	    }
-	    
-	    
+
+
     }
     String loadHighScore(){
         BufferedReader br = null;

@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static WordleGame.runGame.myserver;
+
+
 class RoundBtn implements Border
 {
     private int r;
@@ -252,7 +255,7 @@ public class KeyBoard implements ActionListener {
 
     }
     int col = 0;
-    int row = 0;
+    public static int row = 0;
     int counter = 0;
     int buttonCounter = 0;
 
@@ -260,7 +263,7 @@ public class KeyBoard implements ActionListener {
         if(!(end)){
             if(ae.getSource()==enter && counter <5 && col == 5) {
 
-                if(!(txt.textControl(counter))){
+                if(!(txt.textControl(row))){
 
                 }else{
                     counter++;
@@ -282,6 +285,7 @@ public class KeyBoard implements ActionListener {
                 buttonArray[buttonCounter] = null;
             }
             if(ae.getSource() == q){
+                System.out.println(col);
                 if(col<5){
                     txt.fields[row][col].setText(q.getText());
 

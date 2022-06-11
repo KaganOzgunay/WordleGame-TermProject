@@ -14,18 +14,20 @@ import javax.swing.JTextField;
 
 public class Wordle{
 
+
     int counter = 0;
     static Algorithm txt = new Algorithm();
     Algorithm field = new Algorithm();
     static Algorithm score = new Algorithm();
 
-    JTextField textfield;
+
     static JButton[] buttonArray = new JButton[5];
     static String[][] stickerArr = new String[5][5];
 
 
     KeyBoard keyboard = new KeyBoard();
     JLabel label;
+    public static String titleStr;
 
 
     static JFrame f= new JFrame("Wordle");
@@ -35,14 +37,14 @@ public class Wordle{
 
     JTextField t11,t12,t13,t14,t15;
 
-    LineBorder border = new LineBorder(Color.BLACK,2);
-    LineBorder ifSameBorder = new LineBorder(Color.GREEN,2);
-    LineBorder ifNotSameborder = new LineBorder(Color.YELLOW,2);
 
 
 
-    Wordle(){
 
+    public Wordle(){
+
+        txt.wordSelector();
+        Stopwatch.start();
         for(int a = 0;a<5;a++){
             for(int b = 0;b<5;b++){
                 stickerArr[a][b]="[]";
@@ -50,7 +52,7 @@ public class Wordle{
 
         }
         
-        f.setSize(600,800);
+        f.setSize(900,800);
         View page = new View();
 
         field.setField(5,5);
@@ -69,14 +71,14 @@ public class Wordle{
     	return f;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         SwitchButton switchButton = new SwitchButton();
         f.add(switchButton);
-        Stopwatch.start();
-        txt.wordSelector();
+
+
         new Wordle();
         
-    } 
+    } */
 }
 
 
