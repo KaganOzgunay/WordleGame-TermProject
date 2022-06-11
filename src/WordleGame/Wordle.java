@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -61,35 +62,8 @@ public class Wordle{
         
         keyboard.setKeyboard(f);
         
-        BufferedImage background = null;
 
-        lbl2.setBounds(0, 0, 600, 800);
-        try {
-			background = ImageIO.read(this.getClass().getResource("../Images/background.jpeg"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        Image bg = background.getScaledInstance(lbl2.getWidth(), lbl2.getHeight(),Image.SCALE_SMOOTH);
-        ImageIcon bgimage = new ImageIcon(bg);
-        lbl2.setIcon(bgimage);
-        //f.add(lbl2);
-
-
-        BufferedImage bee = null;
-        JLabel lbl = new JLabel();
-        lbl.setBounds(120, 0, 50, 50);
-        try {
-			bee = ImageIO.read(this.getClass().getResource("../Images/bee.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        Image dimg = bee.getScaledInstance(lbl.getWidth(), lbl.getHeight(),Image.SCALE_SMOOTH);
-        ImageIcon imgicon = new ImageIcon(dimg);
-        lbl.setIcon(imgicon);
-        f.add(lbl);
-
-        
-        f.setLayout(null);
+        f.setLayout(new BorderLayout());
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

@@ -30,6 +30,10 @@ public class Rectangle extends Particle {
 			super.velX = 5*super.velX/6;
 			super.y = screen_height-height;
 		}
+		if (super.y < 0 && super.velY > 0) {
+			super.velY = -super.velY;
+			super.y = 0;
+		}
 		super.x += super.velX;
 		super.y -= super.velY;
 		super.velY -= gravity;

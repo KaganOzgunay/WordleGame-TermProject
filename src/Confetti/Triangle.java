@@ -31,6 +31,13 @@ public class Triangle extends Particle {
 			}
 			super.y = super.screen_height;
 		}
+		if (super.y < 0 && super.velY > 0) {
+			super.velY = -super.velY;
+			for (int i = 0 ; i<3 ; i++) {
+				this.y[i] -= super.y;
+			}
+			super.y = 0;
+		}
 		super.x += super.velX;
 		super.y -= super.velY;
 		for (int i = 0 ; i<3 ; i++) {

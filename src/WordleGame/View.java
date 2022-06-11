@@ -3,10 +3,16 @@ package WordleGame;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -16,12 +22,42 @@ public class View extends JPanel implements ActionListener {
 	Dimension size;
 	int height,width;
 	
+	BufferedImage background = null;
+	BufferedImage bee = null;
+	
+	JLabel lbl = new JLabel();
+	
 	public View () {
 		jf = Wordle.getframe();
 		tm.start();
 		size = jf.getBounds().getSize();
 		height = size.height;
 		width = size.width;
+		
+		
+
+        Wordle.lbl2.setBounds(0, 0, width, height);
+        try {
+			background = ImageIO.read(this.getClass().getResource("../Images/background.jpeg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        Image bg = background.getScaledInstance(Wordle.lbl2.getWidth(), Wordle.lbl2.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon bgimage = new ImageIcon(bg);
+        Wordle.lbl2.setIcon(bgimage);
+        
+        
+        
+        lbl.setBounds(120, 0, 50, 50);
+        try {
+			bee = ImageIO.read(this.getClass().getResource("../Images/bee.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        Image dimg = bee.getScaledInstance(lbl.getWidth(), lbl.getHeight(),Image.SCALE_SMOOTH);
+        ImageIcon imgicon = new ImageIcon(dimg);
+        lbl.setIcon(imgicon);
+        jf.add(lbl);
 	}
 	
 	
@@ -40,6 +76,16 @@ public class View extends JPanel implements ActionListener {
 		if (height != size.height || width != size.width) {
 			height = size.height;
 			width = size.width;
+			
+			Wordle.lbl2.setBounds(0, 0, width, height);
+			Image bg = background.getScaledInstance(Wordle.lbl2.getWidth(), Wordle.lbl2.getHeight(),Image.SCALE_SMOOTH);
+	        ImageIcon bgimage = new ImageIcon(bg);
+	        Wordle.lbl2.setIcon(bgimage);
+	        
+	        lbl.setBounds((width-260)/2, (height-260)/6 - 50, 50, 50);
+	        Image dimg = bee.getScaledInstance(lbl.getWidth(), lbl.getHeight(),Image.SCALE_SMOOTH);
+	        ImageIcon imgicon = new ImageIcon(dimg);
+	        lbl.setIcon(imgicon);
 			
 			for (int y = 0; y < 5; y++) {
 	            for (int x = 0; x < 5; x++) {
@@ -108,7 +154,6 @@ public class View extends JPanel implements ActionListener {
 			KeyBoard.m.setBounds((width/15)*xb+(width-(width/15*10+width/12))/2+width/10, height/16*10,width/15,height/16);
 			xb++;
 			KeyBoard.enter.setBounds((width/15)*xb+(width-(width/15*10+width/12))/2+width/10, height/16*10,width/60*7,height/16);
-			
 			
 		}
 	}
