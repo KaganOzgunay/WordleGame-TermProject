@@ -48,7 +48,7 @@ public class View extends JPanel implements ActionListener {
         
         
         
-        lbl.setBounds(120, 0, 50, 50);
+        lbl.setBounds((width-260)/2, (height-260)/6 - 50, 50, 50);
         try {
 			bee = ImageIO.read(this.getClass().getResource("../Images/bee.png"));
 		} catch (IOException e) {

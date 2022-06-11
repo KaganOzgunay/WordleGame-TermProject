@@ -58,14 +58,15 @@ public class Algorithm  {
     public void changeTheme(){
         if(dwcounter%2 == 0){
             Wordle.f.add(Wordle.lbl2);
-            frame.getContentPane().setBackground(Color.WHITE);
-            changeFieldColor(Color.WHITE,Color.BLACK);
-            dwcounter++;
-        }
-        else if(dwcounter%2==1){
             frame.getContentPane().setBackground(Color.BLACK);
             changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
+        }
+        else if(dwcounter%2==1){
+            frame.getContentPane().setBackground(Color.WHITE);
+            changeFieldColor(Color.BLACK,Color.WHITE);
+            dwcounter++;
+            Wordle.f.remove(Wordle.lbl2);
         }
 
     }
