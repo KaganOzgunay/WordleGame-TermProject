@@ -1,5 +1,6 @@
 package WordleGame;
 import javax.swing.*;
+
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -267,17 +268,10 @@ public class KeyBoard implements ActionListener {
                     col = 0;
                     buttonCounter = 0;
                 }
-
-
-
-
-
             }
             if(ae.getSource()==dw) {
 
                 txt.changeTheme();
-
-
             }
             if(ae.getSource() == backspace && counter>=0){
                 if(col != 0){
@@ -287,7 +281,6 @@ public class KeyBoard implements ActionListener {
                 txt.fields[row][col].setText(" ");
                 buttonArray[buttonCounter] = null;
             }
-
             if(ae.getSource() == q){
                 if(col<5){
                     txt.fields[row][col].setText(q.getText());
@@ -296,9 +289,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = q;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == w){
                 if(col<5){
@@ -307,9 +298,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = w;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == e){
                 if(col<5){
@@ -318,9 +307,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = e;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == r){
                 if(col<5){
@@ -329,9 +316,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = r;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == t){
                 if(col<5){
@@ -340,9 +325,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = t;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == y){
                 if(col<5){
@@ -351,9 +334,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = y;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == u){
                 if(col<5){
@@ -362,9 +343,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = u;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == o){
                 if(col<5){
@@ -373,9 +352,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = o;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == p){
                 if(col<5){
@@ -384,9 +361,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = p;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == a){
                 if(col<5){
@@ -395,9 +370,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = a;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == s){
                 if(col<5){
@@ -406,9 +379,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = s;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == d){
                 if(col<5){
@@ -417,9 +388,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = d;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == f){
                 if(col<5){
@@ -428,9 +397,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = f;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == g){
                 if(col<5){
@@ -439,9 +406,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = g;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == h){
                 if(col<5){
@@ -450,9 +415,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = h;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == j){
                 if(col<5){
@@ -461,9 +424,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = j;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == k){
                 if(col<5){
@@ -472,9 +433,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = k;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == l){
                 if(col<5){
@@ -483,9 +442,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = l;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == i){
                 if(col<5){
@@ -494,9 +451,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = i;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == z){
                 if(col<5){
@@ -505,9 +460,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = z;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == x){
                 if(col<5){
@@ -516,9 +469,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = x;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == c){
                 if(col<5){
@@ -527,9 +478,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = c;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == v){
                 if(col<5){
@@ -538,9 +487,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = v;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == b){
                 if(col<5){
@@ -549,9 +496,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = b;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == n){
                 if(col<5){
@@ -560,9 +505,7 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = n;
                     buttonCounter++;
-
                 }
-
             }
             else if(ae.getSource() == m){
                 if(col<5){
@@ -571,14 +514,8 @@ public class KeyBoard implements ActionListener {
                     col++;
                     buttonArray[buttonCounter] = m;
                     buttonCounter++;
-
                 }
-
             }
         }
-
     }
-
-
-
 }

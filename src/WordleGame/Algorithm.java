@@ -1,28 +1,16 @@
 package WordleGame;
 
-import Confetti.ConfettiFunction;
-
-import java.awt.BorderLayout;
-import java.awt.event.KeyEvent;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import java.awt.*;
-import java.security.Key;
 import java.util.*;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.*;
-import java.awt.font.*;
 import java.io.*;
 import javax.swing.*;
 
-import javax.swing.*;
 import javax.swing.border.LineBorder;
-import java.io.*;
 
 import static WordleGame.KeyBoard.end;
 
@@ -243,7 +231,6 @@ public class Algorithm  {
       
             
             saveHighScore();
-            ConfettiFunction confetti = new ConfettiFunction(300,300);
 
             /*
             JOptionPane.showMessageDialog(null,

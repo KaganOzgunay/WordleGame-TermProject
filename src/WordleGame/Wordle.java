@@ -1,15 +1,10 @@
 package WordleGame;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 
 import javax.swing.border.LineBorder;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
@@ -81,7 +76,8 @@ public class Wordle{
         txt.wordSelector();
         new Wordle();
         
-    } }
+    } 
+}
 
 
 
