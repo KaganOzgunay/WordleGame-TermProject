@@ -35,6 +35,7 @@ public class Algorithm  {
     //public static final String ANSI_GRAY = ;
     public static final String GREEN_BACKGROUND = "\033[42m";  // GREEN
 
+    static boolean movebee = false;
 
     static public String anw;
     public int point = 0;
@@ -161,7 +162,7 @@ public class Algorithm  {
         String Ganw = anw;
         String bosluk = "  ";
         for(int i = 0;i<5;i++){
-
+        	movebee = true;
 
             if(anw.charAt(i) == str.charAt(i)){
                 //animasyon buaraya eklenecek **yeşil

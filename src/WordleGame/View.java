@@ -25,7 +25,10 @@ public class View extends JPanel implements ActionListener {
 	BufferedImage background = null;
 	BufferedImage bee = null;
 	
-	JLabel lbl = new JLabel();
+	static JLabel lbl;
+	
+	double locxofbee = 0;
+	boolean viewchanged = false;
 	
 	public View () {
 		jf = Wordle.getframe();
@@ -34,7 +37,7 @@ public class View extends JPanel implements ActionListener {
 		height = size.height;
 		width = size.width;
 		
-		
+		lbl = new JLabel();
 
         Wordle.lbl2.setBounds(0, 0, width, height);
         try {
@@ -48,7 +51,7 @@ public class View extends JPanel implements ActionListener {
         
         
         
-        lbl.setBounds((width-260)/2, (height-260)/6 - 50, 50, 50);
+        lbl.setBounds((width-260)/2+(int)locxofbee, (height-260)/6 - 50, 50, 50);
         try {
 			bee = ImageIO.read(this.getClass().getResource("../Images/bee.png"));
 		} catch (IOException e) {
@@ -73,7 +76,8 @@ public class View extends JPanel implements ActionListener {
 		if (size.height < 750 || size.width < 450) {
 			jf.setSize(600,800);
 		}
-		if (height != size.height || width != size.width) {
+		if (height != size.height || width != size.width || viewchanged) {
+			viewchanged = false;
 			height = size.height;
 			width = size.width;
 			
@@ -82,7 +86,7 @@ public class View extends JPanel implements ActionListener {
 	        ImageIcon bgimage = new ImageIcon(bg);
 	        Wordle.lbl2.setIcon(bgimage);
 	        
-	        lbl.setBounds((width-260)/2, (height-260)/6 - 50, 50, 50);
+	        lbl.setBounds((width-260)/2+(int)locxofbee, (height-260)/6 - 50, 50, 50);
 	        Image dimg = bee.getScaledInstance(lbl.getWidth(), lbl.getHeight(),Image.SCALE_SMOOTH);
 	        ImageIcon imgicon = new ImageIcon(dimg);
 	        lbl.setIcon(imgicon);
@@ -155,6 +159,10 @@ public class View extends JPanel implements ActionListener {
 			xb++;
 			KeyBoard.enter.setBounds((width/15)*xb+(width-(width/15*10+width/12))/2+width/10, height/16*10,width/60*7,height/16);
 			
+		}
+		if (Algorithm.movebee) {
+			viewchanged = true;
+			locxofbee += 5;
 		}
 	}
 }
