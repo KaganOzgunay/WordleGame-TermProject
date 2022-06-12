@@ -3,6 +3,7 @@ package WordleGame;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
+import java.security.Key;
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
@@ -12,8 +13,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-import static WordleGame.KeyBoard.end;
-import static WordleGame.KeyBoard.row;
+import static WordleGame.KeyBoard.*;
 
 
 public class Algorithm  {
@@ -167,6 +167,7 @@ public class Algorithm  {
 
             }
             if (cs == 'c') {
+
                 if (tempResult != null) {
                     for (int i = 0; i < 5; i++) {
                         fields[x][i].setText(Character.toString(tempResult.charAt(i)));
@@ -228,6 +229,9 @@ public class Algorithm  {
                 point += (5-x)*50;
                 Wordle.buttonArray[i].setBackground(Color.GREEN);
 
+
+                System.out.println(Wordle.buttonArray[i].getBackground());
+
                 stickerArr[x][i] = ANSI_GREEN+"[]"+ANSI_RESET;
 
                 Ganw = Ganw.substring(0,Ganw.indexOf(str.charAt(i))) + " " + Ganw.substring(Ganw.indexOf(str.charAt(i))+1);
@@ -276,6 +280,7 @@ public class Algorithm  {
 
             }
         }
+
 
         if(GC == 5){
             end = true;

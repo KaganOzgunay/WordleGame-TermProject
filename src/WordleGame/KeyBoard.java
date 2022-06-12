@@ -31,7 +31,7 @@ class RoundBtn implements Border
 
 public class KeyBoard implements ActionListener {
 
-    JButton[] buttonArray = Wordle.buttonArray;
+
     public static boolean end = false;
     Algorithm txt = new Algorithm();
     RoundBtn rounded = new RoundBtn(15);
@@ -53,6 +53,7 @@ public class KeyBoard implements ActionListener {
         q.setBounds((width-(width/15*10+width/12))/2,height/16*8,width/15,height/16);
         //q.setBorder(rounded);
         //q.setOpaque(true);
+
         q.addActionListener(this);
         frame.add(q);
         xb++;
@@ -258,9 +259,10 @@ public class KeyBoard implements ActionListener {
     public static int row = 0;
     int counter = 0;
     int buttonCounter = 0;
+    public static boolean enabledButton = false;
 
     public void actionPerformed(ActionEvent ae) {
-        if(!(end)){
+        if(!(end) && enabledButton){
             if(ae.getSource()==enter && counter <5 && col == 5) {
 
                 if(!(txt.textControl(row))){
@@ -282,16 +284,17 @@ public class KeyBoard implements ActionListener {
                     col--;
                 }
                 txt.fields[row][col].setText(" ");
-                buttonArray[buttonCounter] = null;
+                Wordle.buttonArray[buttonCounter] = null;
             }
             if(ae.getSource() == q){
-                System.out.println(col);
+                System.out.println(q.getBackground());
+
                 if(col<5){
                     txt.fields[row][col].setText(q.getText());
 
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = q;
+                    Wordle.buttonArray[buttonCounter] = q;
                     buttonCounter++;
                 }
             }
@@ -300,7 +303,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(w.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = w;
+                    Wordle.buttonArray[buttonCounter] = w;
                     buttonCounter++;
                 }
             }
@@ -309,7 +312,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(e.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = e;
+                    Wordle.buttonArray[buttonCounter] = e;
                     buttonCounter++;
                 }
             }
@@ -318,7 +321,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(r.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = r;
+                    Wordle.buttonArray[buttonCounter] = r;
                     buttonCounter++;
                 }
             }
@@ -327,7 +330,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(t.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = t;
+                    Wordle.buttonArray[buttonCounter] = t;
                     buttonCounter++;
                 }
             }
@@ -336,7 +339,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(y.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = y;
+                    Wordle.buttonArray[buttonCounter] = y;
                     buttonCounter++;
                 }
             }
@@ -345,7 +348,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(u.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = u;
+                    Wordle.buttonArray[buttonCounter] = u;
                     buttonCounter++;
                 }
             }
@@ -354,7 +357,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(o.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = o;
+                    Wordle.buttonArray[buttonCounter] = o;
                     buttonCounter++;
                 }
             }
@@ -363,7 +366,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(p.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = p;
+                    Wordle.buttonArray[buttonCounter] = p;
                     buttonCounter++;
                 }
             }
@@ -372,7 +375,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(a.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = a;
+                    Wordle.buttonArray[buttonCounter] = a;
                     buttonCounter++;
                 }
             }
@@ -381,7 +384,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(s.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = s;
+                    Wordle.buttonArray[buttonCounter] = s;
                     buttonCounter++;
                 }
             }
@@ -390,7 +393,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(d.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = d;
+                    Wordle.buttonArray[buttonCounter] = d;
                     buttonCounter++;
                 }
             }
@@ -399,7 +402,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(f.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = f;
+                    Wordle.buttonArray[buttonCounter] = f;
                     buttonCounter++;
                 }
             }
@@ -408,7 +411,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(g.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = g;
+                    Wordle.buttonArray[buttonCounter] = g;
                     buttonCounter++;
                 }
             }
@@ -417,7 +420,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(h.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = h;
+                    Wordle.buttonArray[buttonCounter] = h;
                     buttonCounter++;
                 }
             }
@@ -426,7 +429,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(j.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = j;
+                    Wordle.buttonArray[buttonCounter] = j;
                     buttonCounter++;
                 }
             }
@@ -435,7 +438,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(k.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = k;
+                    Wordle.buttonArray[buttonCounter] = k;
                     buttonCounter++;
                 }
             }
@@ -444,7 +447,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(l.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = l;
+                    Wordle.buttonArray[buttonCounter] = l;
                     buttonCounter++;
                 }
             }
@@ -453,7 +456,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(i.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = i;
+                    Wordle.buttonArray[buttonCounter] = i;
                     buttonCounter++;
                 }
             }
@@ -462,7 +465,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(z.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = z;
+                    Wordle.buttonArray[buttonCounter] = z;
                     buttonCounter++;
                 }
             }
@@ -471,7 +474,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(x.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = x;
+                    Wordle.buttonArray[buttonCounter] = x;
                     buttonCounter++;
                 }
             }
@@ -480,7 +483,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(c.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = c;
+                    Wordle.buttonArray[buttonCounter] = c;
                     buttonCounter++;
                 }
             }
@@ -489,7 +492,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(v.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = v;
+                    Wordle.buttonArray[buttonCounter] = v;
                     buttonCounter++;
                 }
             }
@@ -498,7 +501,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(b.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = b;
+                    Wordle.buttonArray[buttonCounter] = b;
                     buttonCounter++;
                 }
             }
@@ -507,7 +510,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(n.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = n;
+                    Wordle.buttonArray[buttonCounter] = n;
                     buttonCounter++;
                 }
             }
@@ -516,7 +519,7 @@ public class KeyBoard implements ActionListener {
                     txt.fields[row][col].setText(m.getText());
                     //txt.fields[row][col].set;
                     col++;
-                    buttonArray[buttonCounter] = m;
+                    Wordle.buttonArray[buttonCounter] = m;
                     buttonCounter++;
                 }
             }

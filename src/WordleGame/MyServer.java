@@ -35,6 +35,9 @@ public class MyServer  {
             while (true){
                 try {
                     algo.setChar('s');
+                    if(kb.row == 0){
+                        kb.enabledButton = true;
+                    }
                     new Wordle();
 
 
@@ -42,6 +45,7 @@ public class MyServer  {
                     waitConn();
                     streams();
                     processConn();
+
 
                 } catch (EOFException e) {
 
@@ -70,6 +74,8 @@ public class MyServer  {
         oos.flush();
 
         ois = new ObjectInputStream(conn.getInputStream());
+        kb.enabledButton = true;
+        Stopwatch.start();
 
     }
 
@@ -89,7 +95,7 @@ public class MyServer  {
 
 
                     algo.control(algo.tempResult,kb.row);
-
+                    kb.enabledButton = true;
                     kb.row++;
 
                 }
@@ -125,9 +131,9 @@ public class MyServer  {
         try{
 
             oos.writeObject(text);
-            oos.writeObject(kb.buttonArray);
+            oos.writeObject(Wordle.buttonArray);
             oos.flush();
-
+            kb.enabledButton = false;
 
         }
         catch(IOException e){

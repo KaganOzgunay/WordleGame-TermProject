@@ -73,7 +73,7 @@ public class MyClient {
         oos.flush();
 
         ois = new ObjectInputStream(myClient.getInputStream());
-
+        Stopwatch.start();
     }
 
     private void processConn() throws IOException {
@@ -89,10 +89,13 @@ public class MyClient {
                     algo.tempResult = temp;
                     Wordle.buttonArray = (JButton[]) ois.readObject();
 
-
+                    System.out.println("keyboard color: ");
+                    for(int i = 0;i<5;i++){
+                        System.out.print(Wordle.buttonArray[i].getBackground());
+                    }
 
                     algo.control(algo.tempResult,kb.row);
-
+                    kb.enabledButton = true;
                     kb.row++;
 
                 }
@@ -129,8 +132,10 @@ public class MyClient {
         try{
 
             oos.writeObject(text);
-            oos.writeObject(kb.buttonArray);
+            oos.writeObject(Wordle.buttonArray);
             oos.flush();
+            kb.enabledButton = false;
+
 
 
         }
