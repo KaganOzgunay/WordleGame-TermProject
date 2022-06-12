@@ -1,16 +1,16 @@
 package WordleGame;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
 import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
 import java.util.*;
-import java.awt.Color;
-import java.awt.Font;
 import java.io.*;
 import javax.swing.*;
 
 import javax.swing.border.LineBorder;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 import static WordleGame.KeyBoard.end;
 import static WordleGame.KeyBoard.row;
@@ -327,6 +327,27 @@ public class Algorithm  {
         tempResult = "";
     }
 
+    class TextLimit extends PlainDocument {
+    	private int limit;
+    	  TextLimit(int limit) {
+    	    super();
+    	    this.limit = limit;
+    	  }
+
+    	  TextLimit(int limit, boolean upper) {
+    	    super();
+    	    this.limit = limit;
+    	  }
+
+    	  public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+    	    if (str == null)
+    	      return;
+
+    	    if ((getLength() + str.length()) <= limit) {
+    	      super.insertString(offset, str, attr);
+    	    }
+    	  }
+    }
 
     void setField(int xLength, int yLength){
 
@@ -353,7 +374,9 @@ public class Algorithm  {
                 fields[y][x].setFont(font1);
                 //fields[x][y].set
                 fields[y][x].setColumns(1);
-                fields[y][x].setText(" ");
+                label.setTransferHandler(new ValueImportTransferHandler());
+                fields[y][x].setText(label.getText());
+                fields[y][x].setDocument(new TextLimit(1));
                 fields[y][x].setBounds((frame.getWidth()-260)/2 + x*55, (frame.getHeight()-260)/6 + y*55, 50, 50);
                 fields[y][x].setBackground(Color.WHITE);
                 fields[y][x].setForeground(Color.BLACK);
@@ -362,6 +385,44 @@ public class Algorithm  {
             }
         }
     }
+    
+    public static class ValueImportTransferHandler extends TransferHandler {
+
+        public static final DataFlavor SUPPORTED_DATE_FLAVOR = DataFlavor.stringFlavor;
+
+        public ValueImportTransferHandler() {
+        }
+
+        @Override
+        public boolean canImport(TransferHandler.TransferSupport support) {
+            return support.isDataFlavorSupported(SUPPORTED_DATE_FLAVOR);
+        }
+
+        @Override
+        public boolean importData(TransferHandler.TransferSupport support) {
+            boolean accept = false;
+            if (canImport(support)) {
+                try {
+                    Transferable t = support.getTransferable();
+                    Object value = t.getTransferData(SUPPORTED_DATE_FLAVOR);
+                    if (value instanceof String) {
+                        Component component = support.getComponent();
+                        if (component instanceof JLabel) {
+                            ((JLabel) component).setText(value.toString());
+                            accept = true;
+                        }
+                    }
+                } catch (Exception exp) {
+                    exp.printStackTrace();
+                }
+            }
+            return accept;
+        }
+    }
+
+
+
+    
     void saveHighScore(){
 	    BufferedWriter bw = null;
 	    boolean newscore=false;
