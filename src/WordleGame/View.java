@@ -1,6 +1,6 @@
 package WordleGame;
 
-import Confetti.ConfettiFunction;
+//import src/Confetti/ConfettiFunction.java;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,6 +18,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import static WordleGame.Algorithm.fields;
 
 public class View extends JPanel implements ActionListener {
 	JFrame jf;
@@ -74,14 +76,14 @@ public class View extends JPanel implements ActionListener {
 	
 	public void paintbee(int a) {
 		if (colorsheet[a] == 2) {
-			Algorithm.fields[csrow][a].setBackground(Color.GREEN);
+			fields[csrow][a].setBackground(Color.GREEN);
 		}
 		if (colorsheet[a] == 1) {
-			Algorithm.fields[csrow][a].setBackground(Color.YELLOW);
+			fields[csrow][a].setBackground(Color.YELLOW);
 		}
 	}
 	public static void pushsheet (int[] cs,int x,int gc) {
-		locxofbee = 0;
+		locxofbee = -50;
 		colorsheet = cs;
 		csrow = x;
 		if (gc==5) {
@@ -118,7 +120,7 @@ public class View extends JPanel implements ActionListener {
 			
 			for (int y = 0; y < 5; y++) {
 	            for (int x = 0; x < 5; x++) {
-	            	Algorithm.fields[y][x].setLocation((width-260)/2 + x*55, (height-260)/6 + y*55);
+	            	fields[y][x].setLocation((width-260)/2 + x*55, (height-260)/6 + y*55);
 	            }
 	        }
 			
@@ -210,9 +212,9 @@ public class View extends JPanel implements ActionListener {
 			}
 			
 			viewchanged = true;
-			locxofbee += 2;
+			locxofbee += 10;
 			if (wincase&&!Algorithm.movebee) {
-				ConfettiFunction confetti = new ConfettiFunction(100,100);
+//				Confetti.ConfettiFunction confetti = new Confetti.ConfettiFunction(100,100);
 			}
 		}
 	}

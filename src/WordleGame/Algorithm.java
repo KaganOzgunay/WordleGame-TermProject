@@ -15,6 +15,8 @@ import javax.swing.text.PlainDocument;
 
 import static WordleGame.KeyBoard.*;
 import static WordleGame.Wordle.buttonArray;
+import static WordleGame.runGame.*;
+import static WordleGame.runGame2.*;
 
 
 public class Algorithm  {
@@ -162,19 +164,19 @@ public class Algorithm  {
     int roundcs = 0;
     public void control(String str,int x) throws IOException {
         //cs = 'c';
-
+        int csInt;
         if(row%2==0) {
 
             if (cs == 's') {
 
                 if (str != null) {
-                    runGame.myserver.Send(str);
+                    myserver.Send(str);
                 }
                 roundcs++;
 
             }
             if (cs == 'c') {
-
+                csInt = 1;
                 if (tempResult != null) {
                     for (int i = 0; i < 5; i++) {
                         fields[x][i].setText(Character.toString(tempResult.charAt(i)));
@@ -189,7 +191,7 @@ public class Algorithm  {
 
 
                 if (cs == 's') {
-
+                    csInt = -1;
                     if (tempResult != null) {
 
                             for (int i = 0; i < 5; i++) {
@@ -210,7 +212,7 @@ public class Algorithm  {
 
                     if(str != null){
 
-                        runGame2.myclient.Send(str);
+                        myclient.Send(str);
                     }
                     roundcs++;
                 }
@@ -230,7 +232,7 @@ public class Algorithm  {
             if(anw.charAt(i) == str.charAt(i)){
                 //animasyon buaraya eklenecek **yeşil
 
-                //fields[x][i].setBackground(Color.GREEN);
+                fields[x][i].setBackground(Color.GREEN);
                 colorsheet[i] = 2;
 
                 point += (5-x)*50;
@@ -250,7 +252,7 @@ public class Algorithm  {
 
 
                 stickerArr[x][i] = ANSI_YELLOW+"[]"+ANSI_RESET;
-                //fields[x][i].setBackground(Color.YELLOW);
+                fields[x][i].setBackground(Color.YELLOW);
                 colorsheet[i] = 1;
                 point += (5-x)*25;
 
@@ -259,25 +261,25 @@ public class Algorithm  {
 
             }
             else {
-                //fields[x][i].setBackground(Color.GRAY);
+                fields[x][i].setBackground(Color.GRAY);
             	colorsheet[i] = 0;
             }
         }
-        movebee = true;
-        View.pushsheet(colorsheet,x,0);
+
 
 
         for(int i = 0; i < 5; i++){
-
-            if(Ganw.indexOf(fields[x][i].getText().toUpperCase()) < 0 && fields[x][i].getBackground() == Color.YELLOW){
+            System.out.println(fields[x][i].getText() + " : " + fields[x][i].getBackground());
+            if(Ganw.indexOf(fields[x][i].getText()) < 0 && fields[x][i].getBackground() == Color.YELLOW){
+                colorsheet[i] = 0;
 
                 stickerArr[x][i] = "[]";
                 fields[x][i].setBackground(Color.GRAY);
                 point -= (5-x)*25;
             }
-            else if( fields[x][i].getBackground() == Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
+            else if( fields[x][i].getBackground() == Color.YELLOW && Wordle.buttonArray[i].getBackground() != Color.GREEN ){
 
-                buttonArray[i].setBackground(Color.YELLOW);
+                Wordle.buttonArray[i].setBackground(Color.YELLOW);
 
             }
             else if( buttonArray[i].getBackground() != Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
@@ -287,7 +289,10 @@ public class Algorithm  {
                 fields[x][i].setBackground(Color.GRAY);
 
             }
+
         }
+        movebee = true;
+        View.pushsheet(colorsheet,x,0);
 
         System.out.println("keyboard color: ");
         for(int i = 0;i<5;i++){

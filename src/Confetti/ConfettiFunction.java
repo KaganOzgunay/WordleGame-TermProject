@@ -1,4 +1,4 @@
-package Confetti;
+/* package Confetti;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import WordleGame.Wordle;
+//import WordleGame.Wordle;
 
 public class ConfettiFunction extends JPanel implements ActionListener{
 	public int c_rectangles,c_triangles;
@@ -112,4 +112,4 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 		}
 		repaint();
 	}
-}
+}*/
