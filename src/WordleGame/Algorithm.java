@@ -14,6 +14,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 import static WordleGame.KeyBoard.*;
+import static WordleGame.Wordle.buttonArray;
 
 
 public class Algorithm  {
@@ -25,6 +26,8 @@ public class Algorithm  {
     //public static final String ANSI_GRAY = ;
     public static final String GREEN_BACKGROUND = "\033[42m";  // GREEN
     public static char cs;
+
+    public static int randInt;
     static boolean movebee = false;
     public String tempResult;
     static public String anw;
@@ -54,6 +57,9 @@ public class Algorithm  {
     public void changeTheme(){
         if(dwcounter%2 == 0){
             Wordle.f.add(Wordle.lbl2);
+            for(int b = 0;b<5;b++){
+                System.out.println(buttonArray[b].getText());
+            }
             frame.getContentPane().setBackground(Color.BLACK);
             changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
@@ -82,8 +88,9 @@ public class Algorithm  {
         return randomInt;
     }
 
+
     public void wordSelector(){
-        int randInt = 1;
+        //int randInt = 1;
         int lineCounter = 0;
 
         //int randInt = randomNumberGenerator();
@@ -223,14 +230,14 @@ public class Algorithm  {
             if(anw.charAt(i) == str.charAt(i)){
                 //animasyon buaraya eklenecek **yeşil
 
-                fields[x][i].setBackground(Color.GREEN);
-                //colorsheet[i] = 2;
+                //fields[x][i].setBackground(Color.GREEN);
+                colorsheet[i] = 2;
 
                 point += (5-x)*50;
-                Wordle.buttonArray[i].setBackground(Color.GREEN);
+                buttonArray[i].setBackground(Color.GREEN);
 
 
-                System.out.println(Wordle.buttonArray[i].getBackground());
+                System.out.println(buttonArray[i].getBackground());
 
                 stickerArr[x][i] = ANSI_GREEN+"[]"+ANSI_RESET;
 
@@ -243,8 +250,8 @@ public class Algorithm  {
 
 
                 stickerArr[x][i] = ANSI_YELLOW+"[]"+ANSI_RESET;
-                fields[x][i].setBackground(Color.YELLOW);
-                //colorsheet[i] = 1;
+                //fields[x][i].setBackground(Color.YELLOW);
+                colorsheet[i] = 1;
                 point += (5-x)*25;
 
 
@@ -252,12 +259,12 @@ public class Algorithm  {
 
             }
             else {
-                fields[x][i].setBackground(Color.GRAY);
-            	//colorsheet[i] = 0;
+                //fields[x][i].setBackground(Color.GRAY);
+            	colorsheet[i] = 0;
             }
         }
-        //movebee = true;
-        //View.pushsheet(colorsheet,x,0);
+        movebee = true;
+        View.pushsheet(colorsheet,x,0);
 
 
         for(int i = 0; i < 5; i++){
@@ -268,18 +275,25 @@ public class Algorithm  {
                 fields[x][i].setBackground(Color.GRAY);
                 point -= (5-x)*25;
             }
-            else if( fields[x][i].getBackground() == Color.YELLOW && Wordle.buttonArray[i].getBackground() != Color.GREEN ){
+            else if( fields[x][i].getBackground() == Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
 
-                Wordle.buttonArray[i].setBackground(Color.YELLOW);
+                buttonArray[i].setBackground(Color.YELLOW);
 
             }
-            else if( Wordle.buttonArray[i].getBackground() != Color.YELLOW && Wordle.buttonArray[i].getBackground() != Color.GREEN ){
+            else if( buttonArray[i].getBackground() != Color.YELLOW && buttonArray[i].getBackground() != Color.GREEN ){
 
-                Wordle.buttonArray[i].setBackground(Color.GRAY);
+                buttonArray[i].setBackground(Color.GRAY);
+
                 fields[x][i].setBackground(Color.GRAY);
 
             }
         }
+
+        System.out.println("keyboard color: ");
+        for(int i = 0;i<5;i++){
+            System.out.print(buttonArray[i].getText() + " : " + buttonArray[i].getBackground() + " - ");
+        }
+
 
 
         if(GC == 5){
@@ -325,7 +339,7 @@ public class Algorithm  {
             }
             saveHighScore();
             JOptionPane.showMessageDialog(null,
-                    "Game Over" + "\n  " + "The word is: " + "\"" + "\uD83D\uDE00" + "\"",
+                    stickerArr[0][0],
                     "PopUp Dialog",
                     JOptionPane.INFORMATION_MESSAGE);
         }

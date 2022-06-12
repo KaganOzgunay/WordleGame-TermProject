@@ -75,7 +75,7 @@ public class MyClient {
         ois = new ObjectInputStream(myClient.getInputStream());
         Stopwatch.start();
     }
-
+    boolean tf = true;
     private void processConn() throws IOException {
 
 
@@ -85,13 +85,21 @@ public class MyClient {
         int x = 0;
         do {
             try {
+
                 if((temp = (String)ois.readObject()) != null){
                     algo.tempResult = temp;
+                    algo.randInt = (int) ois.readObject();
+                    System.out.println(algo.randInt);
+                    if(tf){
+                        algo.wordSelector();
+                        tf = false;
+                    }
+
                     Wordle.buttonArray = (JButton[]) ois.readObject();
 
                     System.out.println("keyboard color: ");
                     for(int i = 0;i<5;i++){
-                        System.out.print(Wordle.buttonArray[i].getBackground());
+                        System.out.print(Wordle.buttonArray[i].getText() + " : " + Wordle.buttonArray[i].getBackground() + " - ");
                     }
 
                     algo.control(algo.tempResult,kb.row);

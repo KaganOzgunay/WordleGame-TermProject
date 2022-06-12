@@ -131,6 +131,8 @@ public class MyServer  {
         try{
 
             oos.writeObject(text);
+            System.out.println(algo.randInt);
+            oos.writeObject(algo.randInt);
             oos.writeObject(Wordle.buttonArray);
             oos.flush();
             kb.enabledButton = false;
