@@ -376,7 +376,7 @@ public class Algorithm  {
                 fields[y][x].setColumns(1);
                 label.setTransferHandler(new ValueImportTransferHandler());
                 fields[y][x].setText(label.getText());
-                fields[y][x].setDocument(new TextLimit(1));
+                //fields[y][x].setDocument(new TextLimit(1));
                 fields[y][x].setBounds((frame.getWidth()-260)/2 + x*55, (frame.getHeight()-260)/6 + y*55, 50, 50);
                 fields[y][x].setBackground(Color.WHITE);
                 fields[y][x].setForeground(Color.BLACK);

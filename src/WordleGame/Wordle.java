@@ -70,6 +70,7 @@ public class Wordle{
     public static JFrame getframe () {
     	return f;
     }
+}
 /*
     public static void main(String[] args) {
         SwitchButton switchButton = new SwitchButton();
