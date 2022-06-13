@@ -212,7 +212,6 @@ public class View extends JPanel implements ActionListener {
 			viewchanged = true;
 			locxofbee += 2;
 			if (wincase&&!Algorithm.movebee) {
-				System.out.println("confetti bom");
 				ConfettiFunction confetti = new ConfettiFunction(jf);
 			}
 		}

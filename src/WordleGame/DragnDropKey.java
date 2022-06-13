@@ -1,4 +1,4 @@
-package WordleGame;
+/*package WordleGame;
 
 import java.awt.Component;
 import java.awt.Graphics;
@@ -22,7 +22,7 @@ import javax.swing.border.Border;
 
 //import WordleGame.KeyBoard.ValueExportTransferHandler;
 
-/*class RoundBtn implements Border
+class RoundBtn implements Border
 {
     private int r;
     RoundBtn(int r) {
@@ -38,7 +38,7 @@ import javax.swing.border.Border;
                             int width, int height) {
         g.drawRoundRect(x, y, width-1, height-1, r, r);
     }
-}*/
+}
 public class DragnDropKey extends TransferHandler implements ActionListener {
 	
 	//static Drag_n_Drop
@@ -835,3 +835,4 @@ public class DragnDropKey extends TransferHandler implements ActionListener {
         }
     }
 }
+*/

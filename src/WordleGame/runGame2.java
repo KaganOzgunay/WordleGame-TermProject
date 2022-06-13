@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class runGame2 {
 	
-	static JFrame f2= new JFrame("Wordle2");
+	static JFrame f2= new JFrame("Player_2");
 	
     static Algorithm algo2 = new Algorithm(f2);
     static Wordle wordle2 = new Wordle(algo2,f2);
