@@ -38,6 +38,7 @@ public class Algorithm  {
     int min = 1;int max = 12947;
     JFrame frame = Wordle.f;
     JLabel lblHighscore;
+    public int GC = 0;
 
     String[][] stickerArr = Wordle.stickerArr;
 
@@ -223,7 +224,7 @@ public class Algorithm  {
         roundcs++;
 
 
-        int GC = 0;
+         int GC = 0;
         //RoundCounter++;
         String Yanw = anw;
         String Ganw = anw;
@@ -295,7 +296,7 @@ public class Algorithm  {
 
         }
         movebee = true;
-        View.pushsheet(colorsheet,x,0);
+        View.pushsheet(colorsheet,x,GC);
 
         System.out.println("keyboard color: ");
         for(int i = 0;i<5;i++){

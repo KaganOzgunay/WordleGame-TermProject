@@ -87,9 +87,11 @@ public class View extends JPanel implements ActionListener {
 	public void paintbee(int a) {
 		if (colorsheet[a] == 2) {
 			fields[csrow][a].setBackground(Color.GREEN);
+			Wordle.buttonArray[a].setBackground(Color.GREEN);
 		}
 		if (colorsheet[a] == 1) {
 			fields[csrow][a].setBackground(Color.YELLOW);
+			Wordle.buttonArray[a].setBackground(Color.YELLOW);
 		}
 	}
 	public static void pushsheet (int[] cs,int x,int gc) {
@@ -224,7 +226,7 @@ public class View extends JPanel implements ActionListener {
 			viewchanged = true;
 			locxofbee += 10;
 			if (wincase&&!Algorithm.movebee) {
-//				Confetti.ConfettiFunction confetti = new Confetti.ConfettiFunction(100,100);
+				Confetti.ConfettiFunction confetti = new Confetti.ConfettiFunction(100,100);
 			}
 		}
 	}

@@ -38,11 +38,12 @@ public class MyServer  {
                     if(kb.row == 0){
                         kb.enabledButton = true;
                     }
-                    new Wordle();
+
 
 
 
                     waitConn();
+                    new Wordle();
                     streams();
                     processConn();
 
