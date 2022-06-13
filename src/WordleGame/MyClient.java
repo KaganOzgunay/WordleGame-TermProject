@@ -16,10 +16,10 @@ import java.net.Socket;
 import static java.awt.SystemColor.text;
 
 public class MyClient {
-    KeyBoard kb = new KeyBoard();
+    
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
-    Algorithm algo = new Algorithm();
+    Algorithm algo;
     private Socket myClient;
     private String srv;
    public void Process() throws IOException {
@@ -32,12 +32,15 @@ public class MyClient {
 
 
     }
-    public MyClient(String  info){
+    KeyBoard kb;
+    public MyClient(String  info,Algorithm algo,JFrame f){
 
         srv = info;
-
+        this.algo = algo;
+        kb = new KeyBoard(algo);
+        kb.setKeyboard(f);
     }
-
+    
 
 
     public void runClient() {
@@ -46,7 +49,7 @@ public class MyClient {
         try {
 
             algo.setChar('c');
-            new Wordle();
+            //new Wordle();
 
 
             connToS();

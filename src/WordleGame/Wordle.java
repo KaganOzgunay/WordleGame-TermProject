@@ -16,21 +16,24 @@ public class Wordle{
 
 
     int counter = 0;
-    static Algorithm txt = new Algorithm();
-    Algorithm field = new Algorithm();
-    static Algorithm score = new Algorithm();
+    
+    //static Algorithm txt = new Algorithm(f);
+    Algorithm algo;
+    JFrame f;
+    //static Algorithm score = new Algorithm(f);
 
 
     static JButton[] buttonArray = new JButton[5];
     static String[][] stickerArr = new String[5][5];
 
 
-    KeyBoard keyboard = new KeyBoard();
+    
     JLabel label;
     public static String titleStr;
 
 
-    static JFrame f= new JFrame("Wordle");
+    
+    //static JFrame f2= new JFrame("Wordle2");
     static JFrame stickerFrame = new JFrame("STICKER");
     static JLabel lbl2 = new JLabel();
 
@@ -41,9 +44,11 @@ public class Wordle{
 
 
 
-    public Wordle(){
-
-        txt.wordSelector();
+    public Wordle(Algorithm algo,JFrame f){
+    	this.algo = algo;
+    	this.f = f;
+    	//KeyBoard keyboard = new KeyBoard(algo);
+        algo.wordSelector();
         Stopwatch.start();
         for(int a = 0;a<5;a++){
             for(int b = 0;b<5;b++){
@@ -53,12 +58,12 @@ public class Wordle{
         }
         
         f.setSize(900,800);
-        View page = new View();
+        View page = new View(f);
 
-        field.setField(5,5);
+        algo.setField(5,5);
         
         
-        keyboard.setKeyboard(f);
+        
         
 
         f.setLayout(new BorderLayout());
@@ -67,20 +72,10 @@ public class Wordle{
 
     }
     
-    public static JFrame getframe () {
+    public JFrame getframe () {
     	return f;
     }
 }
-/*
-    public static void main(String[] args) {
-        SwitchButton switchButton = new SwitchButton();
-        f.add(switchButton);
-
-
-        new Wordle();
-        
-    } 
-}*/
 
 
 

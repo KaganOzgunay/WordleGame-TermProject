@@ -9,10 +9,19 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class MyServer  {
-
-
-    Algorithm algo = new Algorithm();
-    KeyBoard kb = new KeyBoard();
+	Algorithm algo;
+	JFrame f;
+	KeyBoard kb;
+	public MyServer (Algorithm algo,JFrame f) {
+		this.algo = algo;
+		this.f = f;
+		kb = new KeyBoard(algo);
+		kb.setKeyboard(f);
+	}
+	
+    //Algorithm algo = new Algorithm();
+    
+    
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
     ServerSocket server;
@@ -38,7 +47,7 @@ public class MyServer  {
                     if(kb.row == 0){
                         kb.enabledButton = true;
                     }
-                    new Wordle();
+                    //new Wordle();
 
 
 

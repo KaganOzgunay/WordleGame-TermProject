@@ -33,11 +33,15 @@ public class KeyBoard implements ActionListener {
 
 
     public static boolean end = false;
-    Algorithm txt = new Algorithm();
+    Algorithm txt;
     RoundBtn rounded = new RoundBtn(15);
     static JButton q,w,e,r,t,y,u,o,p,a,s,d,f,g,h,j,k,l,i,z,x,c,v,b,n,m,enter,backspace,dw;
 
     JTextField result;
+    
+    public KeyBoard(Algorithm algo) {
+    	this.txt = algo;
+    }
 
 
     public void setKeyboard(JFrame frame){
@@ -264,7 +268,6 @@ public class KeyBoard implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if(!(end) && enabledButton){
             if(ae.getSource()==enter && counter <5 && col == 5) {
-
                 if(!(txt.textControl(row))){
 
                 }else{

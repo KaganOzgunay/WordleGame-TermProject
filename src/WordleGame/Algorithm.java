@@ -31,7 +31,12 @@ public class Algorithm  {
     public int point = 0;
     public int RoundCounter = 0;
     int min = 1;int max = 12947;
-    JFrame frame = Wordle.f;
+    JFrame frame;
+    
+    public Algorithm (JFrame f) {
+    	frame = f;
+    }
+    
     JLabel lblHighscore;
 
     String[][] stickerArr = Wordle.stickerArr;
@@ -53,7 +58,7 @@ public class Algorithm  {
     }
     public void changeTheme(){
         if(dwcounter%2 == 0){
-            Wordle.f.add(Wordle.lbl2);
+            frame.add(Wordle.lbl2);
             frame.getContentPane().setBackground(Color.BLACK);
             changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
@@ -62,7 +67,7 @@ public class Algorithm  {
             frame.getContentPane().setBackground(Color.WHITE);
             changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
-            Wordle.f.remove(Wordle.lbl2);
+            frame.remove(Wordle.lbl2);
         }
 
     }
@@ -223,8 +228,8 @@ public class Algorithm  {
             if(anw.charAt(i) == str.charAt(i)){
                 //animasyon buaraya eklenecek **yeşil
 
-                fields[x][i].setBackground(Color.GREEN);
-                //colorsheet[i] = 2;
+                //fields[x][i].setBackground(Color.GREEN);
+                colorsheet[i] = 2;
 
                 point += (5-x)*50;
                 Wordle.buttonArray[i].setBackground(Color.GREEN);
@@ -243,8 +248,8 @@ public class Algorithm  {
 
 
                 stickerArr[x][i] = ANSI_YELLOW+"[]"+ANSI_RESET;
-                fields[x][i].setBackground(Color.YELLOW);
-                //colorsheet[i] = 1;
+                //fields[x][i].setBackground(Color.YELLOW);
+                colorsheet[i] = 1;
                 point += (5-x)*25;
 
 
@@ -252,12 +257,12 @@ public class Algorithm  {
 
             }
             else {
-                fields[x][i].setBackground(Color.GRAY);
-            	//colorsheet[i] = 0;
+                //fields[x][i].setBackground(Color.GRAY);
+            	colorsheet[i] = 0;
             }
         }
-        //movebee = true;
-        //View.pushsheet(colorsheet,x,0);
+        movebee = true;
+        View.pushsheet(colorsheet,x,GC);
 
 
         for(int i = 0; i < 5; i++){
@@ -298,7 +303,6 @@ public class Algorithm  {
                 System.out.println();
 
             }
-
 
 
             saveHighScore();

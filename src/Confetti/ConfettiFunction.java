@@ -22,10 +22,8 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 	Dimension size;
 	boolean onoff;
 	public static ArrayList<Particle> shapes = new ArrayList<Particle>();
-	public ConfettiFunction (int c_rectangles,int c_triangles) {
-		this.c_rectangles = c_rectangles;
-		this.c_triangles = c_triangles;
-		jf = Wordle.getframe();
+	public ConfettiFunction (JFrame f) {
+		jf = f;
 		tm.start();
 		//JFrame jf = new JFrame();
 		//JPanel jp = new JPanel();
@@ -70,6 +68,7 @@ public class ConfettiFunction extends JPanel implements ActionListener{
 	
 	
 	public void actionPerformed(ActionEvent e) {
+		System.out.println("bambam");
 		size = jf.getBounds().getSize();
 		height = size.height;
 		width = size.width;

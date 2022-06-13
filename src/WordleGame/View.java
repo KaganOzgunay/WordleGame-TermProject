@@ -39,8 +39,8 @@ public class View extends JPanel implements ActionListener {
 	
 	static boolean wincase = false;
 	
-	public View () {
-		jf = Wordle.getframe();
+	public View (JFrame f) {
+		jf = f;
 		tm.start();
 		size = jf.getBounds().getSize();
 		height = size.height;
@@ -212,7 +212,8 @@ public class View extends JPanel implements ActionListener {
 			viewchanged = true;
 			locxofbee += 2;
 			if (wincase&&!Algorithm.movebee) {
-				ConfettiFunction confetti = new ConfettiFunction(100,100);
+				System.out.println("confetti bom");
+				ConfettiFunction confetti = new ConfettiFunction(jf);
 			}
 		}
 	}

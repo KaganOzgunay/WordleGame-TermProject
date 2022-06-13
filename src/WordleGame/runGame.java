@@ -1,16 +1,22 @@
 package WordleGame;
 
-public class runGame {
-    static Algorithm algo = new Algorithm();
-    public static MyServer myserver = new MyServer();
+import javax.swing.JFrame;
 
-    public static void main(String[] args) throws InterruptedException {
+public class runGame {
+	static JFrame f= new JFrame("Wordle");
+	
+    static Algorithm algo = new Algorithm(f);
+    static Wordle wordle1 = new Wordle(algo,f);
+    public static MyServer myserver = new MyServer(algo,f);
+    
+    
+
+    public runGame () {
         algo.setChar('s');
         myserver.runServer();
-
-
-
-
     }
+
+
+    
 
 }
