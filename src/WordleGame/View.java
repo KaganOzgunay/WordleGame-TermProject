@@ -60,7 +60,7 @@ public class View extends JPanel implements ActionListener {
         ImageIcon bgimage = new ImageIcon(bg);
         Wordle.lbl2.setIcon(bgimage);
 
-		Wordle.lbl3.setBounds(0, 0, width, height);
+		//Wordle.lbl3.setBounds(0, 0, width, height);
 		try {
 			background = ImageIO.read(this.getClass().getResource("../Images/background.jpeg"));
 		} catch (IOException e) {
