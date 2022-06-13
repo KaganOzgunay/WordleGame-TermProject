@@ -7,6 +7,7 @@ import javax.swing.border.LineBorder;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -56,6 +57,30 @@ public class Wordle{
             }
 
         }
+        Stopwatch timer =new Stopwatch();
+        JLabel timerlabel = timer.timeLabel;
+        
+        JLabel highscore = new JLabel();
+        String score = "Top Score: "+algo.loadHighScore();
+        highscore.setText(score);
+        //highscore.setIcon(image);
+        
+        highscore.setBorder(BorderFactory.createBevelBorder(1));
+        highscore.setOpaque(true);
+        highscore.setHorizontalAlignment(JTextField.CENTER);
+        highscore.setHorizontalTextPosition(JLabel.CENTER);
+        highscore.setVerticalTextPosition(JLabel.BOTTOM);
+        highscore.setForeground(Color.RED);
+        highscore.setFont(new Font("MV Boli",Font.PLAIN,10));
+        highscore.setBounds(80,353,100,50);
+        //highscore.setIconTextGap(-35);
+        //highscore.setVerticalAlignment(JLabel.RIGHT);
+        //highscore.setHorizontalAlignment(JLabel.TOP);
+        //f.setLayout(null);
+        //f.add(timerStartButton);
+        f.add(highscore);
+        f.add(timerlabel);
+
         
         f.setSize(900,800);
         View page = new View(f);
