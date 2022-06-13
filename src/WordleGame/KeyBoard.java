@@ -36,7 +36,7 @@ public class KeyBoard implements ActionListener {
     Algorithm txt = new Algorithm();
     RoundBtn rounded = new RoundBtn(15);
     static JButton q,w,e,r,t,y,u,o,p,a,s,d,f,g,h,j,k,l,i,z,x,c,v,b,n,m,enter,backspace,dw;
-
+    static JLabel bos1= new JLabel();
     JTextField result;
 
 
@@ -249,8 +249,15 @@ public class KeyBoard implements ActionListener {
         enter = new JButton("ENTER");
         enter.setBounds((width/15)*xb+(width-(width/15*10+width/12))/2+width/10, height/16*10,width/60*7,height/16);
         enter.addActionListener(this);
+        enter.setLayout(null);
         frame.add(enter);
-      
+        bos1.setText(null);
+        bos1.setBounds((width/15)*xb+(width-(width/15*10+width/12))/2+width/10, height/16*10,width/15,height/16);
+        //r.setBorder(rounded);
+        //m.setOpaque(true);
+        //bos.addActionListener(this);
+        frame.add(bos1);
+        xb++;
         
 
 
