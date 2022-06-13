@@ -31,11 +31,11 @@ public class Wordle{
 
 
     static JFrame f= new JFrame("Wordle");
-    static JFrame stickerFrame = new JFrame("STICKER");
+
     static JLabel lbl2 = new JLabel();
 
 
-    JTextField t11,t12,t13,t14,t15;
+
 
 
 
@@ -44,7 +44,7 @@ public class Wordle{
     public Wordle(){
 
         txt.wordSelector();
-        Stopwatch.start();
+        //Stopwatch.start();
         for(int a = 0;a<5;a++){
             for(int b = 0;b<5;b++){
                 stickerArr[a][b]="[]";

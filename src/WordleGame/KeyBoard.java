@@ -262,6 +262,10 @@ public class KeyBoard implements ActionListener {
     public static boolean enabledButton = false;
 
     public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource()==dw) {
+
+            txt.changeTheme();
+        }
         if(!(end) && enabledButton){
             if(ae.getSource()==enter && counter <5 && col == 5) {
 
@@ -274,10 +278,7 @@ public class KeyBoard implements ActionListener {
                     buttonCounter = 0;
                 }
             }
-            if(ae.getSource()==dw) {
 
-                txt.changeTheme();
-            }
             if(ae.getSource() == backspace && counter>=0){
                 if(col != 0){
                     buttonCounter--;

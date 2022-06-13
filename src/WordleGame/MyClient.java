@@ -46,10 +46,11 @@ public class MyClient {
         try {
 
             algo.setChar('c');
+
             new Wordle();
 
-
             connToS();
+
             streams();
             processConn();
 
