@@ -30,7 +30,7 @@ public class Wordle{
     public static String titleStr;
 
 
-    static JFrame f= new JFrame("Wordle");
+    static JFrame f;
 
     static JLabel lbl2 = new JLabel();
     static JLabel lbl3 = new JLabel();
@@ -42,8 +42,8 @@ public class Wordle{
 
 
 
-    public Wordle(){
-
+    public Wordle(JFrame f){
+    	this.f = f;
         txt.wordSelector();
         //Stopwatch.start();
         for(int a = 0;a<5;a++){
@@ -67,6 +67,31 @@ public class Wordle{
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
+    
+    /*public Wordle () {
+    	f = new JFrame();
+        txt.wordSelector();
+        //Stopwatch.start();
+        for(int a = 0;a<5;a++){
+            for(int b = 0;b<5;b++){
+                stickerArr[a][b]="[]";
+            }
+
+        }
+        
+        f.setSize(900,800);
+        View page = new View();
+
+        field.setField(5,5);
+        
+        
+        keyboard.setKeyboard(f);
+        
+
+        f.setLayout(new BorderLayout());
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }*/
     
     public static JFrame getframe () {
     	return f;

@@ -28,15 +28,15 @@ public class Algorithm  {
     //public static final String ANSI_GRAY = ;
     public static final String GREEN_BACKGROUND = "\033[42m";  // GREEN
     public static char cs;
-
+    public static boolean multitf = false;
     public static int randInt;
     static boolean movebee = false;
     public String tempResult;
     static public String anw;
     public int point = 0;
     public int RoundCounter = 0;
-    int min = 1;int max = 12947;
-    JFrame frame = Wordle.f;
+    static int min = 1, max = 12945;
+    JFrame frame = menu.menuframe;
     JLabel lblHighscore;
     public int GC = 0;
 
@@ -59,12 +59,10 @@ public class Algorithm  {
     }
     public void changeTheme(){
         if(dwcounter%2 == 0){
-            Wordle.f.remove(Wordle.lbl3);
-            Wordle.f.add(Wordle.lbl2);
+            menu.menuframe.remove(Wordle.lbl3);
+            menu.menuframe.add(Wordle.lbl2);
 
-            for(int b = 0;b<5;b++){
-                System.out.println(buttonArray[b].getText());
-            }
+            
             frame.getContentPane().setBackground(Color.BLACK);
             changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
@@ -73,8 +71,8 @@ public class Algorithm  {
             frame.getContentPane().setBackground(Color.WHITE);
             changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
-            Wordle.f.remove(Wordle.lbl2);
-            Wordle.f.add(Wordle.lbl3);
+            menu.menuframe.remove(Wordle.lbl2);
+            menu.menuframe.add(Wordle.lbl3);
         }
 
     }
@@ -89,7 +87,7 @@ public class Algorithm  {
             }
         }
 }
-    public int randomNumberGenerator() {
+    public static int randomNumberGenerator() {
         int randomInt = (int)Math.floor(Math.random()*(max-min+1)+min);
         return randomInt;
     }
@@ -169,7 +167,7 @@ public class Algorithm  {
     public void control(String str,int x) throws IOException {
         //cs = 'c';
         int csInt;
-        if(row%2==0) {
+        if(row%2==0 && multitf) {
 
             if (cs == 's') {
 
@@ -191,7 +189,7 @@ public class Algorithm  {
                 }
                 roundcs++;
             }
-        }else {
+        }else if (row%2==1 && multitf) {
 
 
                 if (cs == 's') {
@@ -236,7 +234,7 @@ public class Algorithm  {
             if(anw.charAt(i) == str.charAt(i)){
                 //animasyon buaraya eklenecek **yeşil
 
-                fields[x][i].setBackground(Color.GREEN);
+                //fields[x][i].setBackground(Color.GREEN);
                 colorsheet[i] = 2;
 
                 point += (5-x)*50;
@@ -256,7 +254,7 @@ public class Algorithm  {
 
 
                 stickerArr[x][i] = ANSI_YELLOW+"[]"+ANSI_RESET;
-                fields[x][i].setBackground(Color.YELLOW);
+                //fields[x][i].setBackground(Color.YELLOW);
                 colorsheet[i] = 1;
                 point += (5-x)*25;
 
@@ -265,7 +263,7 @@ public class Algorithm  {
 
             }
             else {
-                fields[x][i].setBackground(Color.GRAY);
+                //fields[x][i].setBackground(Color.GRAY);
             	colorsheet[i] = 0;
             }
         }

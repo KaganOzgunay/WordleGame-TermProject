@@ -30,7 +30,7 @@ public class MyServer  {
 
     public void runServer() {
         try {
-            server = new ServerSocket(12346, 100);
+            server = new ServerSocket(12345, 100);
 
             while (true){
                 try {
@@ -43,7 +43,8 @@ public class MyServer  {
 
 
                     waitConn();
-                    new Wordle();
+               
+                    Wordle multi_p_1 = new Wordle(menu.menuframe);
                     streams();
                     processConn();
 

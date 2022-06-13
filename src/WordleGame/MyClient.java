@@ -33,7 +33,7 @@ public class MyClient {
 
     }
     public MyClient(String  info){
-
+    	System.out.println("wtf2");
         srv = info;
 
     }
@@ -41,13 +41,14 @@ public class MyClient {
 
 
     public void runClient() {
-
+    	System.out.println("amina koycam");
 
         try {
 
             algo.setChar('c');
 
-            new Wordle();
+            
+            Wordle multi_p_2 = new Wordle(menu.menuframe);
 
             connToS();
 
