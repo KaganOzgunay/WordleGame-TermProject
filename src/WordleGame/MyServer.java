@@ -30,7 +30,7 @@ public class MyServer  {
 
     public void runServer() {
         try {
-            server = new ServerSocket(12345, 100);
+            server = new ServerSocket(12346, 100);
 
             while (true){
                 try {
@@ -51,7 +51,7 @@ public class MyServer  {
 
                 }
                 finally{
-                    closeConn();
+                    //closeConn();
                 }
 
 

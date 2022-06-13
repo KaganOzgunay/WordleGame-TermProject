@@ -58,7 +58,9 @@ public class Algorithm  {
     }
     public void changeTheme(){
         if(dwcounter%2 == 0){
+            Wordle.f.remove(Wordle.lbl3);
             Wordle.f.add(Wordle.lbl2);
+
             for(int b = 0;b<5;b++){
                 System.out.println(buttonArray[b].getText());
             }
@@ -71,6 +73,7 @@ public class Algorithm  {
             changeFieldColor(Color.BLACK,Color.WHITE);
             dwcounter++;
             Wordle.f.remove(Wordle.lbl2);
+            Wordle.f.add(Wordle.lbl3);
         }
 
     }
@@ -170,7 +173,7 @@ public class Algorithm  {
             if (cs == 's') {
 
                 if (str != null) {
-                    myserver.Send(str);
+                    runGame.myserver.Send(str);
                 }
                 roundcs++;
 
@@ -212,7 +215,7 @@ public class Algorithm  {
 
                     if(str != null){
 
-                        myclient.Send(str);
+                        runGame2.myclient.Send(str);
                     }
                     roundcs++;
                 }
