@@ -59,6 +59,16 @@ public class View extends JPanel implements ActionListener {
         Image bg = background.getScaledInstance(Wordle.lbl2.getWidth(), Wordle.lbl2.getHeight(),Image.SCALE_SMOOTH);
         ImageIcon bgimage = new ImageIcon(bg);
         Wordle.lbl2.setIcon(bgimage);
+
+		Wordle.lbl3.setBounds(0, 0, width, height);
+		try {
+			background = ImageIO.read(this.getClass().getResource("../Images/background.jpeg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Image bg = background.getScaledInstance(Wordle.lbl3.getWidth(), Wordle.lbl3.getHeight(),Image.SCALE_SMOOTH);
+		ImageIcon bgimage = new ImageIcon(bg);
+		Wordle.lbl2.setIcon(bgimage);
         
         
         

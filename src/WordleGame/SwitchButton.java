@@ -133,7 +133,7 @@ public class SwitchButton extends Component {
         }
     }
 
-    public void addEventSelected(EventSwitchSelected event) {
-        events.add(event);
-    }
+    //public void addEventSelected(EventSwitchSelected event) {
+    //    events.add(event);
+    //}
 }

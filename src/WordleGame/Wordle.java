@@ -33,6 +33,7 @@ public class Wordle{
     static JFrame f= new JFrame("Wordle");
     static JFrame stickerFrame = new JFrame("STICKER");
     static JLabel lbl2 = new JLabel();
+    static JLabel lbl3 = new JLabel();
 
 
     JTextField t11,t12,t13,t14,t15;
