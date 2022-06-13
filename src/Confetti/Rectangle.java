@@ -1,4 +1,4 @@
-/* package Confetti;
+package Confetti;
 
 import java.awt.Color;
 
@@ -49,5 +49,3 @@ public class Rectangle extends Particle {
 		}
 	}
 }
-
-*/
