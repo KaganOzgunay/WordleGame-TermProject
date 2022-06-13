@@ -29,6 +29,7 @@ public class View extends JPanel implements ActionListener {
 	BufferedImage bee = null;
 	
 	static JLabel lbl;
+	JLabel hs,timerlabel;
 	
 	static double locxofbee = 0;
 	boolean viewchanged = false;
@@ -39,7 +40,9 @@ public class View extends JPanel implements ActionListener {
 	
 	static boolean wincase = false;
 	
-	public View (JFrame f) {
+	public View (JFrame f,JLabel hs,JLabel timerlabel) {
+		this.hs = hs;
+		this.timerlabel = timerlabel;
 		jf = f;
 		tm.start();
 		size = jf.getBounds().getSize();
@@ -121,6 +124,9 @@ public class View extends JPanel implements ActionListener {
 	            	Algorithm.fields[y][x].setLocation((width-260)/2 + x*55, (height-260)/6 + y*55);
 	            }
 	        }
+			
+			hs.setBounds(width-97, 3, 100, 50);
+			timerlabel.setLocation(3, 3);
 			
 			int xb = 0;
 			KeyBoard.q.setBounds((width-(width/15*10+width/12))/2,height/16*8,width/15,height/16);

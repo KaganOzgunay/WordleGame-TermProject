@@ -38,7 +38,7 @@ public class Stopwatch {
     Stopwatch(){
     	
     	timeLabel.setText(hours_string+":"+minutes_string+":"+seconds_string);
-    	timeLabel.setBounds(50,50,100,50);
+    	timeLabel.setBounds(3,3,100,50);
     	timeLabel.setFont(new Font("MV Boli",Font.PLAIN,16));
     	//timeLabel.setBorder(BorderFactory.createBevelBorder(1));
     	timeLabel.setOpaque(true);

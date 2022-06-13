@@ -72,7 +72,7 @@ public class Wordle{
         highscore.setVerticalTextPosition(JLabel.BOTTOM);
         highscore.setForeground(Color.RED);
         highscore.setFont(new Font("MV Boli",Font.PLAIN,10));
-        highscore.setBounds(80,353,100,50);
+        highscore.setBounds(797,3,100,50);
         //highscore.setIconTextGap(-35);
         //highscore.setVerticalAlignment(JLabel.RIGHT);
         //highscore.setHorizontalAlignment(JLabel.TOP);
@@ -83,7 +83,7 @@ public class Wordle{
 
         
         f.setSize(900,800);
-        View page = new View(f);
+        View page = new View(f,highscore,timerlabel);
 
         algo.setField(5,5);
         
