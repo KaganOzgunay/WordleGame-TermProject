@@ -66,7 +66,7 @@ public class Wordle{
         f.setLayout(new BorderLayout());
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setResizable(false);
+        f.setResizable(true);
         
         JLabel highscore = new JLabel();
         String score = "Top Score: "+hscore.loadHighScore();
